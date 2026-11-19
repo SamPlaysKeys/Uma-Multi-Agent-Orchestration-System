@@ -1,0 +1,139 @@
+There are a lot of Umamusume and it can be hard to keep track of what their nicknames are. Here's a list.
+
+First, a couple of notes on names:
+
+- **Uma/horse names are mononyms:** horses are not people so their name is in a [singular form](https://en.wikipedia.org/wiki/Mononym) (as it is in certain cultures, e.g. parts of Indonesia). "Haru Urara" is the full, singular name, there is no first or last form.
+- **The half-exception - Crown names:** Some ownerships use a common word or phrase to denote ownership. Notable examples are Mejiro, Admire, and City. These, however, don't constitute surnames, and they can be both "prefixes" or "suffixes." Some owners use multiple crown names. Some words are just common to horse names because people like them, not because they are crown names (O = king, Teio = emperor; in Hong Kong racing, Dragon, Fortune, Lucky, etc.).
+- Some in-game names Umas use to call each other aren't actually used all that much in the community.
+
+| Name               | In-game                      | Fan/community                | Notes                                                               |
+| ------------------ | ---------------------------- | ---------------------------- | ------------------------------------------------------------------- |
+| Admire Vega        | Ayabe                        | Ayabe                        | IRL nickname is "Adobe"                                             |
+| Agnes Digital      | Digital                      | Digitan                      | Agnes is crown name                                                 |
+| Agnes Tachyon      | Tachyon                      | Tachy                        | Agnes is crown name                                                 |
+| Air Groove         | Groove, Guru-nee (Duramente) |                              | Air is crown name                                                   |
+| Air Messiah        | Messiah                      |                              | Air is crown name                                                   |
+| Air Shakur         | Shakur                       |                              | Air is crown name                                                   |
+| Almond Eye         | Ai-chan                      | Final boss                   |                                                                     |
+| Aston Machan       | Machan                       |                              |                                                                     |
+| Bamboo Memory      | Bamboo                       |                              |                                                                     |
+| Believe            |                              |                              |                                                                     |
+| Biko Pegasus       | Biko                         |                              |                                                                     |
+| Biwa Hayahide      | Hayahide                     | Biwa                         |                                                                     |
+| Blast Onepiece     | Onepiece, Bu-chan            |                              |                                                                     |
+| Bubble Gum Fellow  |                              |                              |                                                                     |
+| Buena Vista        |                              |                              |                                                                     |
+| Calstone Light O   | Light O                      |                              |                                                                     |
+| Cesario            |                              |                              |                                                                     |
+| Cheval Grand       | Cheval, Shuvacchi (Vivlos)   |                              |                                                                     |
+| Chrono Genesis     | Chrono                       |                              |                                                                     |
+| Copano Rickey      | Rickey                       |                              |                                                                     |
+| Curren Bouquetd'or | Bouquet                      |                              |                                                                     |
+| Curren Chan        | Curren                       |                              |                                                                     |
+| Daiichi Ruby       | Ruby, Ojou (Helios)          |                              |                                                                     |
+| Daitaku Helios     | Helios                       |                              |                                                                     |
+| Daiwa Scarlet      | Scarlet                      | Daiwa, Dasuka                | Daiwa is a crown name, but no other Daiwas are in Uma               |
+| Dantsu Flame       | Dantsu                       |                              |                                                                     |
+| Daring Heart       | Heart                        |                              |                                                                     |
+| Daring Tact        | Tact                         |                              |                                                                     |
+| Dream Journey      |                              | Dorija                       |                                                                     |
+| Duramente          | Dura                         |                              |                                                                     |
+| Durandal           |                              |                              |                                                                     |
+| Eishin Flash       | Flash                        |                              |                                                                     |
+| El Condor Pasa     | El                           | Pasa (?)                     |                                                                     |
+| Espoir City        | Espo                         |                              |                                                                     |
+| Fenomeno           | Meno                         |                              |                                                                     |
+| Fine Motion        | Fine                         | Finemo                       |                                                                     |
+| Fuji Kiseki        | Fuji                         |                              |                                                                     |
+| Furioso            |                              |                              |                                                                     |
+| Fusaichi Pandora   | Pandora                      | Fusapan                      |                                                                     |
+| Gentildonna        | Gentil                       | Donna, Gorilla               |                                                                     |
+| Gold City          | City (Shichi)                |                              | City is a crown name, but she gets Day 1 privileges                 |
+| Gold Ship          | Golshi                       |                              | Gorushi = 564                                                       |
+| Gran Alegria       |                              |                              |                                                                     |
+| Grass Wonder       | Grass                        |                              |                                                                     |
+| Haru Urara         | Urara                        |                              | NOT Haru                                                            |
+| Hishi Akebono      | Akebono                      |                              |                                                                     |
+| Hishi Amazon       | Hishiama                     |                              |                                                                     |
+| Hishi Miracle      | Mirako (ミラ子)                 | Mirako (ミラ子)                 |                                                                     |
+| Hokko Tarumae      | Tarumae                      |                              |                                                                     |
+| Ikuno Dictus       | Ikuno                        |                              |                                                                     |
+| Inari One          | Inari                        |                              |                                                                     |
+| Ines Fujin         | Ines                         |                              |                                                                     |
+| Jungle Pocket      | Pokke                        |                              |                                                                     |
+| K.S.Miracle        | KS                           |                              |                                                                     |
+| Katsuragi Ace      | Ace                          |                              |                                                                     |
+| Kawakami Princess  | Kawakami                     |                              |                                                                     |
+| King Halo          | King                         |                              |                                                                     |
+| Kitasan Black      | Kitasan                      | Kita-chan                    |                                                                     |
+| Loves Only You     | Love                         |                              |                                                                     |
+| Lucky Lilac        | Lilac, Lala (Blast Onepiece) | Lala                         |                                                                     |
+| Manhattan Cafe     | Cafe                         |                              |                                                                     |
+| Maruzensky         | Maruzen                      | Maru                         |                                                                     |
+| Marvelous Sunday   | Marvelous, Mabe              |                              |                                                                     |
+| Matikanefukukitaru | Fukukitaru                   | Fuku                         |                                                                     |
+| Matikanetannhauser | Tannhauser, Machitan         | Machitan, Mambo              |                                                                     |
+| Mayano Top Gun     | Maya, Mayano                 |                              |                                                                     |
+| Meisho Doto        | Doto                         |                              |                                                                     |
+| Mejiro Ardan       | Ardan                        |                              |                                                                     |
+| Mejiro Bright      | Bright                       |                              |                                                                     |
+| Mejiro Dober       | Dober                        |                              |                                                                     |
+| Mejiro McQueen     | McQueen, Mac (Gold Ship)     |                              |                                                                     |
+| Mejiro Palmer      | Palmer                       |                              |                                                                     |
+| Mejiro Ramonu      | Ramonu                       |                              |                                                                     |
+| Mejiro Ryan        | Ryan                         |                              |                                                                     |
+| Mihono Bourbon     | Bourbon                      |                              |                                                                     |
+| Mr. C.B.           | CB                           |                              |                                                                     |
+| Nakayama Festa     | Nakayama                     | Festa                        | Since Nakayama is the name of the track, Festa is used in community |
+| Narita Brian       | Brian                        |                              |                                                                     |
+| Narita Taishin     | Taishin                      |                              |                                                                     |
+| Narita Top Road    | Topro                        | NTR                          |                                                                     |
+| Neo Universe       | Uni, Universe                | Neouni                       |                                                                     |
+| Nice Nature        | Neicha                       |                              |                                                                     |
+| Nishino Flower     | Flower                       |                              |                                                                     |
+| No Reason          | Reason                       |                              |                                                                     |
+| North Flight       | Fu-chan                      |                              |                                                                     |
+| Oguri Cap          | Oguri                        |                              |                                                                     |
+| Orfevre            | Orfe                         | Orfy                         |                                                                     |
+| Rhein Kraft        | Kraft                        |                              |                                                                     |
+| Rice Shower        | Rice                         |                              |                                                                     |
+| Royce and Royce    |                              |                              |                                                                     |
+| Sakura Bakushin O  | Bakushin O                   |                              |                                                                     |
+| Sakura Chiyono O   | Chiyo-chan                   |                              |                                                                     |
+| Sakura Laurel      | Laurel                       |                              |                                                                     |
+| Satono Crown       | Crown, Kura-chan             |                              |                                                                     |
+| Satono Diamond     | Dia                          |                              |                                                                     |
+| Seeking the Pearl  | Pearl                        |                              |                                                                     |
+| Seiun Sky          | Sei                          |                              | In-game she's called both "Seiun" and "Sky"                         |
+| Shinko Windy       | Windy                        |                              |                                                                     |
+| Silence Suzuka     | Suzuka                       |                              | Technically Suzuka is the crown name but it has stuck               |
+| Sirius Symboli     | Sirius                       |                              |                                                                     |
+| Smart Falcon       | Falco (ファル子)                 |                              |                                                                     |
+| Sounds of Earth    | Earth                        |                              |                                                                     |
+| Special Week       | Spe                          |                              |                                                                     |
+| Stay Gold          | Stego, Anego (Dorija)        |                              |                                                                     |
+| Still in Love      | Still                        | Silly                        |                                                                     |
+| Super Creek        | Creek                        |                              |                                                                     |
+| Sweep Tosho        | Sweep                        | Sweepy (Tensai Mahou Shoujo) |                                                                     |
+| Symboli Kris S     | Kris S                       |                              |                                                                     |
+| Symboli Rudolf     | Rudolf, Kaichou              |                              |                                                                     |
+| T.M. Opera O       | Opera O                      |                              |                                                                     |
+| Taiki Shuttle      | Taiki                        |                              |                                                                     |
+| Tamamo Cross       | Tama, Tamtam (EN)            |                              |                                                                     |
+| Tanino Gimlet      | Gim, Gimlet                  |                              |                                                                     |
+| Tap Dance City     | Tap                          |                              |                                                                     |
+| Tokai Teio         | Teio                         |                              |                                                                     |
+| Tosen Jordan       | Jordan                       |                              |                                                                     |
+| Transcend          | Tora-chan                    |                              |                                                                     |
+| Tsurumaru Tsuyoshi | Tsuru                        |                              |                                                                     |
+| Twin Turbo         | Turbo                        |                              |                                                                     |
+| Verxina            | Shina                        |                              |                                                                     |
+| Vivlos             |                              |                              |                                                                     |
+| Vodka              |                              |                              |                                                                     |
+| Win Variation      | Variation, Shion             | Shion, Winba                 | There is little consensus currently                                 |
+| Winning Ticket     | Ticket, Chikezo              |                              |                                                                     |
+| Wonder Acute       | Acute                        |                              |                                                                     |
+| Yaeno Muteki       | Yaeno                        |                              |                                                                     |
+| Yamanin Zephyr     | Zephyr                       |                              |                                                                     |
+| Yukino Bijin       | Yukino                       |                              |                                                                     |
+| Zenno Rob Roy      | Rob Roy                      |                              |                                                                     |
