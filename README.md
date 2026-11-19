@@ -86,15 +86,21 @@ Located under `skills/model-roster/`:
 
 ## 🚀 Quick Start / Installation
 
-To sync these agents and skills into your local OpenCode environment:
+To deploy or update these agents and skills in your local OpenCode environment (`~/.config/opencode/`):
 
 ```bash
+# Default & Recommended: Automated symlinking
+# Finds this repo and symlinks ~/.config/opencode files directly to it
 ./install.sh
+
+# Or explicitly:
+./install.sh --symlink
+
+# Standalone Copy Mode (if you want isolated copies without symlinks):
+./install.sh --copy
 ```
 
-Or manually copy:
-- `agents/*.md` $\to$ `~/.config/opencode/agents/`
-- `skills/model-roster/` $\to$ `~/.config/opencode/skills/model-roster/`
+With symlink mode, any changes you make or pull in this repository (agent prompts, models, nickname data) are reflected in OpenCode immediately without re-running the installer!
 
 ### Usage in OpenCode:
 - Start mission orchestration:
