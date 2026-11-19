@@ -71,8 +71,9 @@ flowchart TD
 - `scripts/generate-markdown.py`: Generator script that parses `data/uma_nicknames.json` and outputs `Uma_nicknames.md`.
 - `.github/workflows/generate-nicknames-markdown.yml`: GitHub Actions workflow that automatically regenerates and commits `Uma_nicknames.md` whenever `data/uma_nicknames.json` is updated!
 - `agents/`: Agent system prompts (`symboli.md`, `tracen-lounge.md`, `biwa.md`, `golshi.md`, `spe-chan.md`, `super-creek.md`, `tachyon.md`).
-- `skills/`: OpenCode skills (`model-roster`).
-- `install.sh`: One-click local deployment script into `~/.config/opencode/`.
+- `skills/`: OpenCode skills (`model-roster`, `uma-help`).
+- `commands/`: Custom OpenCode slash commands (`help-uma-os.md`).
+- `install.sh`: Automated symlink/copy deployment script for `~/.config/opencode/`.
 
 ---
 
@@ -103,6 +104,11 @@ To deploy or update these agents and skills in your local OpenCode environment (
 With symlink mode, any changes you make or pull in this repository (agent prompts, models, nickname data) are reflected in OpenCode immediately without re-running the installer!
 
 ### Usage in OpenCode:
+- **Quick Help & Squad Roster**:
+  ```text
+  /help-uma-os
+  ```
+  *(Or ask OpenCode anytime via the `uma-help` skill)*
 - Start mission orchestration:
   ```text
   /agent symboli

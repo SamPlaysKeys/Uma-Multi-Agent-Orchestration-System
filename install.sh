@@ -38,6 +38,7 @@ echo "⚙️  Installation mode: ${MODE}"
 
 mkdir -p "${OPENCODE_DIR}/agents"
 mkdir -p "${OPENCODE_DIR}/skills"
+mkdir -p "${OPENCODE_DIR}/commands"
 
 # Ensure Python helper scripts in the repo are executable
 chmod +x "${SCRIPT_DIR}/skills/model-roster/scripts/"*.py 2>/dev/null || true
@@ -54,10 +55,9 @@ for agent in "${SCRIPT_DIR}"/agents/*.md; do
   target="${OPENCODE_DIR}/agents/${filename}"
 
   if [ "$MODE" = "symlink" ]; then
-    # Remove existing file/symlink if present
     rm -f "$target"
     ln -s "$agent" "$target"
-    echo "🔗 Symlinked: ${filename} -> ${agent}"
+    echo "🔗 Symlinked: agents/${filename} -> ${agent}"
   else
     rm -f "$target"
     cp -v "$agent" "$target"
@@ -67,22 +67,43 @@ done
 # Deploy skills
 echo ""
 echo "--- Installing Skills ---"
-skill_src="${SCRIPT_DIR}/skills/model-roster"
-skill_target="${OPENCODE_DIR}/skills/model-roster"
+for skill_dir in "${SCRIPT_DIR}"/skills/*; do
+  [ -d "$skill_dir" ] || continue
+  skill_name="$(basename "$skill_dir")"
+  skill_target="${OPENCODE_DIR}/skills/${skill_name}"
 
-if [ -d "$skill_src" ]; then
   if [ "$MODE" = "symlink" ]; then
     rm -rf "$skill_target"
-    ln -s "$skill_src" "$skill_target"
-    echo "🔗 Symlinked: model-roster -> ${skill_src}"
+    ln -s "$skill_dir" "$skill_target"
+    echo "🔗 Symlinked: skills/${skill_name} -> ${skill_dir}"
   else
     rm -rf "$skill_target"
     mkdir -p "$skill_target"
-    cp -rv "${skill_src}/"* "${skill_target}/"
+    cp -rv "${skill_dir}/"* "${skill_target}/"
     chmod +x "${skill_target}/scripts/"*.py 2>/dev/null || true
   fi
+done
+
+# Deploy commands
+echo ""
+echo "--- Installing Commands ---"
+if [ -d "${SCRIPT_DIR}/commands" ]; then
+  for cmd in "${SCRIPT_DIR}"/commands/*.md; do
+    [ -f "$cmd" ] || continue
+    cmd_name="$(basename "$cmd")"
+    cmd_target="${OPENCODE_DIR}/commands/${cmd_name}"
+
+    if [ "$MODE" = "symlink" ]; then
+      rm -f "$cmd_target"
+      ln -s "$cmd" "$cmd_target"
+      echo "🔗 Symlinked: commands/${cmd_name} -> ${cmd}"
+    else
+      rm -f "$cmd_target"
+      cp -v "$cmd" "$cmd_target"
+    fi
+  done
 fi
 
 echo ""
 echo "✨ Installation complete in [${MODE}] mode!"
-echo "Use '/agent symboli' for autonomous dispatch, or '/agent tracen-lounge' for clubroom brainstorming!"
+echo "Use '/help-uma-os' to see squad capabilities, '/agent symboli' for autonomous dispatch, or '/agent tracen-lounge' for clubroom brainstorming!"
