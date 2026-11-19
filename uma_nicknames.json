@@ -1,0 +1,1811 @@
+{
+  "total_count": 129,
+  "metadata": {
+    "description": "Umamusume: Pretty Derby canonical names, in-game nicknames, fan/community nicknames, and notes.",
+    "rules": [
+      "Uma/horse names are mononyms (singular form; no first/last name separation).",
+      "Crown names (e.g. Mejiro, Admire, Agnes, Air, City) denote ownership or lineage rather than family surnames.",
+      "Some in-game names are used primarily by specific Umas (e.g. Duramente calling Air Groove Guru-nee)."
+    ]
+  },
+  "alias_to_canonical": {
+    "ace": "Katsuragi Ace",
+    "acute": "Wonder Acute",
+    "admire vega": "Admire Vega",
+    "agnes digital": "Agnes Digital",
+    "agnes tachyon": "Agnes Tachyon",
+    "ai-chan": "Almond Eye",
+    "air groove": "Air Groove",
+    "air messiah": "Air Messiah",
+    "air shakur": "Air Shakur",
+    "akebono": "Hishi Akebono",
+    "almond eye": "Almond Eye",
+    "anego": "Stay Gold",
+    "anego (dorija)": "Stay Gold",
+    "ardan": "Mejiro Ardan",
+    "aston machan": "Aston Machan",
+    "ayabe": "Admire Vega",
+    "bakushin o": "Sakura Bakushin O",
+    "bamboo": "Bamboo Memory",
+    "bamboo memory": "Bamboo Memory",
+    "believe": "Believe",
+    "biko": "Biko Pegasus",
+    "biko pegasus": "Biko Pegasus",
+    "biwa": "Biwa Hayahide",
+    "biwa hayahide": "Biwa Hayahide",
+    "blast onepiece": "Blast Onepiece",
+    "bouquet": "Curren Bouquetd'or",
+    "bourbon": "Mihono Bourbon",
+    "brian": "Narita Brian",
+    "bright": "Mejiro Bright",
+    "bu-chan": "Blast Onepiece",
+    "bubble gum fellow": "Bubble Gum Fellow",
+    "buena vista": "Buena Vista",
+    "cafe": "Manhattan Cafe",
+    "calstone light o": "Calstone Light O",
+    "cb": "Mr. C.B.",
+    "cesario": "Cesario",
+    "cheval": "Cheval Grand",
+    "cheval grand": "Cheval Grand",
+    "chikezo": "Winning Ticket",
+    "chiyo-chan": "Sakura Chiyono O",
+    "chrono": "Chrono Genesis",
+    "chrono genesis": "Chrono Genesis",
+    "city": "Gold City",
+    "city (shichi)": "Gold City",
+    "copano rickey": "Copano Rickey",
+    "creek": "Super Creek",
+    "crown": "Satono Crown",
+    "curren": "Curren Chan",
+    "curren bouquetd'or": "Curren Bouquetd'or",
+    "curren chan": "Curren Chan",
+    "daiichi ruby": "Daiichi Ruby",
+    "daitaku helios": "Daitaku Helios",
+    "daiwa": "Daiwa Scarlet",
+    "daiwa scarlet": "Daiwa Scarlet",
+    "dantsu": "Dantsu Flame",
+    "dantsu flame": "Dantsu Flame",
+    "daring heart": "Daring Heart",
+    "daring tact": "Daring Tact",
+    "dasuka": "Daiwa Scarlet",
+    "dia": "Satono Diamond",
+    "digital": "Agnes Digital",
+    "digitan": "Agnes Digital",
+    "dober": "Mejiro Dober",
+    "donna": "Gentildonna",
+    "dorija": "Dream Journey",
+    "doto": "Meisho Doto",
+    "dream journey": "Dream Journey",
+    "dura": "Duramente",
+    "duramente": "Duramente",
+    "durandal": "Durandal",
+    "earth": "Sounds of Earth",
+    "eishin flash": "Eishin Flash",
+    "el": "El Condor Pasa",
+    "el condor pasa": "El Condor Pasa",
+    "espo": "Espoir City",
+    "espoir city": "Espoir City",
+    "falco": "Smart Falcon",
+    "falco (ファル子)": "Smart Falcon",
+    "fenomeno": "Fenomeno",
+    "festa": "Nakayama Festa",
+    "final boss": "Almond Eye",
+    "fine": "Fine Motion",
+    "fine motion": "Fine Motion",
+    "finemo": "Fine Motion",
+    "flash": "Eishin Flash",
+    "flower": "Nishino Flower",
+    "fu-chan": "North Flight",
+    "fuji": "Fuji Kiseki",
+    "fuji kiseki": "Fuji Kiseki",
+    "fuku": "Matikanefukukitaru",
+    "fukukitaru": "Matikanefukukitaru",
+    "furioso": "Furioso",
+    "fusaichi pandora": "Fusaichi Pandora",
+    "fusapan": "Fusaichi Pandora",
+    "gentil": "Gentildonna",
+    "gentildonna": "Gentildonna",
+    "gim": "Tanino Gimlet",
+    "gimlet": "Tanino Gimlet",
+    "gold city": "Gold City",
+    "gold ship": "Gold Ship",
+    "golshi": "Gold Ship",
+    "gorilla": "Gentildonna",
+    "gran alegria": "Gran Alegria",
+    "grass": "Grass Wonder",
+    "grass wonder": "Grass Wonder",
+    "groove": "Air Groove",
+    "guru-nee": "Air Groove",
+    "guru-nee (duramente)": "Air Groove",
+    "haru urara": "Haru Urara",
+    "hayahide": "Biwa Hayahide",
+    "heart": "Daring Heart",
+    "helios": "Daitaku Helios",
+    "hishi akebono": "Hishi Akebono",
+    "hishi amazon": "Hishi Amazon",
+    "hishi miracle": "Hishi Miracle",
+    "hishiama": "Hishi Amazon",
+    "hokko tarumae": "Hokko Tarumae",
+    "ikuno": "Ikuno Dictus",
+    "ikuno dictus": "Ikuno Dictus",
+    "inari": "Inari One",
+    "inari one": "Inari One",
+    "ines": "Ines Fujin",
+    "ines fujin": "Ines Fujin",
+    "jordan": "Tosen Jordan",
+    "jungle pocket": "Jungle Pocket",
+    "k.s.miracle": "K.S.Miracle",
+    "kaichou": "Symboli Rudolf",
+    "katsuragi ace": "Katsuragi Ace",
+    "kawakami": "Kawakami Princess",
+    "kawakami princess": "Kawakami Princess",
+    "king": "King Halo",
+    "king halo": "King Halo",
+    "kita-chan": "Kitasan Black",
+    "kitasan": "Kitasan Black",
+    "kitasan black": "Kitasan Black",
+    "kraft": "Rhein Kraft",
+    "kris s": "Symboli Kris S",
+    "ks": "K.S.Miracle",
+    "kura-chan": "Satono Crown",
+    "lala": "Lucky Lilac",
+    "lala (blast onepiece)": "Lucky Lilac",
+    "laurel": "Sakura Laurel",
+    "light o": "Calstone Light O",
+    "lilac": "Lucky Lilac",
+    "love": "Loves Only You",
+    "loves only you": "Loves Only You",
+    "lucky lilac": "Lucky Lilac",
+    "mabe": "Marvelous Sunday",
+    "mac": "Mejiro McQueen",
+    "mac (gold ship)": "Mejiro McQueen",
+    "machan": "Aston Machan",
+    "machitan": "Matikanetannhauser",
+    "mambo": "Matikanetannhauser",
+    "manhattan cafe": "Manhattan Cafe",
+    "maru": "Maruzensky",
+    "maruzen": "Maruzensky",
+    "maruzensky": "Maruzensky",
+    "marvelous": "Marvelous Sunday",
+    "marvelous sunday": "Marvelous Sunday",
+    "matikanefukukitaru": "Matikanefukukitaru",
+    "matikanetannhauser": "Matikanetannhauser",
+    "maya": "Mayano Top Gun",
+    "mayano": "Mayano Top Gun",
+    "mayano top gun": "Mayano Top Gun",
+    "mcqueen": "Mejiro McQueen",
+    "meisho doto": "Meisho Doto",
+    "mejiro ardan": "Mejiro Ardan",
+    "mejiro bright": "Mejiro Bright",
+    "mejiro dober": "Mejiro Dober",
+    "mejiro mcqueen": "Mejiro McQueen",
+    "mejiro palmer": "Mejiro Palmer",
+    "mejiro ramonu": "Mejiro Ramonu",
+    "mejiro ryan": "Mejiro Ryan",
+    "meno": "Fenomeno",
+    "messiah": "Air Messiah",
+    "mihono bourbon": "Mihono Bourbon",
+    "mirako": "Hishi Miracle",
+    "mirako (ミラ子)": "Hishi Miracle",
+    "mr. c.b.": "Mr. C.B.",
+    "nakayama": "Nakayama Festa",
+    "nakayama festa": "Nakayama Festa",
+    "narita brian": "Narita Brian",
+    "narita taishin": "Narita Taishin",
+    "narita top road": "Narita Top Road",
+    "neicha": "Nice Nature",
+    "neo universe": "Neo Universe",
+    "neouni": "Neo Universe",
+    "nice nature": "Nice Nature",
+    "nishino flower": "Nishino Flower",
+    "no reason": "No Reason",
+    "north flight": "North Flight",
+    "ntr": "Narita Top Road",
+    "oguri": "Oguri Cap",
+    "oguri cap": "Oguri Cap",
+    "ojou": "Daiichi Ruby",
+    "ojou (helios)": "Daiichi Ruby",
+    "onepiece": "Blast Onepiece",
+    "opera o": "T.M. Opera O",
+    "orfe": "Orfevre",
+    "orfevre": "Orfevre",
+    "orfy": "Orfevre",
+    "palmer": "Mejiro Palmer",
+    "pandora": "Fusaichi Pandora",
+    "pasa": "El Condor Pasa",
+    "pasa (?)": "El Condor Pasa",
+    "pearl": "Seeking the Pearl",
+    "pokke": "Jungle Pocket",
+    "ramonu": "Mejiro Ramonu",
+    "reason": "No Reason",
+    "rhein kraft": "Rhein Kraft",
+    "rice": "Rice Shower",
+    "rice shower": "Rice Shower",
+    "rickey": "Copano Rickey",
+    "rob roy": "Zenno Rob Roy",
+    "royce and royce": "Royce and Royce",
+    "ruby": "Daiichi Ruby",
+    "rudolf": "Symboli Rudolf",
+    "ryan": "Mejiro Ryan",
+    "sakura bakushin o": "Sakura Bakushin O",
+    "sakura chiyono o": "Sakura Chiyono O",
+    "sakura laurel": "Sakura Laurel",
+    "satono crown": "Satono Crown",
+    "satono diamond": "Satono Diamond",
+    "scarlet": "Daiwa Scarlet",
+    "seeking the pearl": "Seeking the Pearl",
+    "sei": "Seiun Sky",
+    "seiun sky": "Seiun Sky",
+    "shakur": "Air Shakur",
+    "shina": "Verxina",
+    "shinko windy": "Shinko Windy",
+    "shion": "Win Variation",
+    "shuvacchi": "Cheval Grand",
+    "shuvacchi (vivlos)": "Cheval Grand",
+    "silence suzuka": "Silence Suzuka",
+    "silly": "Still in Love",
+    "sirius": "Sirius Symboli",
+    "sirius symboli": "Sirius Symboli",
+    "smart falcon": "Smart Falcon",
+    "sounds of earth": "Sounds of Earth",
+    "spe": "Special Week",
+    "special week": "Special Week",
+    "stay gold": "Stay Gold",
+    "stego": "Stay Gold",
+    "still": "Still in Love",
+    "still in love": "Still in Love",
+    "super creek": "Super Creek",
+    "suzuka": "Silence Suzuka",
+    "sweep": "Sweep Tosho",
+    "sweep tosho": "Sweep Tosho",
+    "sweepy": "Sweep Tosho",
+    "sweepy (tensai mahou shoujo)": "Sweep Tosho",
+    "symboli kris s": "Symboli Kris S",
+    "symboli rudolf": "Symboli Rudolf",
+    "t.m. opera o": "T.M. Opera O",
+    "tachy": "Agnes Tachyon",
+    "tachyon": "Agnes Tachyon",
+    "tact": "Daring Tact",
+    "taiki": "Taiki Shuttle",
+    "taiki shuttle": "Taiki Shuttle",
+    "taishin": "Narita Taishin",
+    "tama": "Tamamo Cross",
+    "tamamo cross": "Tamamo Cross",
+    "tamtam": "Tamamo Cross",
+    "tamtam (en)": "Tamamo Cross",
+    "tanino gimlet": "Tanino Gimlet",
+    "tannhauser": "Matikanetannhauser",
+    "tap": "Tap Dance City",
+    "tap dance city": "Tap Dance City",
+    "tarumae": "Hokko Tarumae",
+    "teio": "Tokai Teio",
+    "ticket": "Winning Ticket",
+    "tokai teio": "Tokai Teio",
+    "topro": "Narita Top Road",
+    "tora-chan": "Transcend",
+    "tosen jordan": "Tosen Jordan",
+    "transcend": "Transcend",
+    "tsuru": "Tsurumaru Tsuyoshi",
+    "tsurumaru tsuyoshi": "Tsurumaru Tsuyoshi",
+    "turbo": "Twin Turbo",
+    "twin turbo": "Twin Turbo",
+    "uni": "Neo Universe",
+    "universe": "Neo Universe",
+    "urara": "Haru Urara",
+    "variation": "Win Variation",
+    "verxina": "Verxina",
+    "vivlos": "Vivlos",
+    "vodka": "Vodka",
+    "win variation": "Win Variation",
+    "winba": "Win Variation",
+    "windy": "Shinko Windy",
+    "winning ticket": "Winning Ticket",
+    "wonder acute": "Wonder Acute",
+    "yaeno": "Yaeno Muteki",
+    "yaeno muteki": "Yaeno Muteki",
+    "yamanin zephyr": "Yamanin Zephyr",
+    "yukino": "Yukino Bijin",
+    "yukino bijin": "Yukino Bijin",
+    "zenno rob roy": "Zenno Rob Roy",
+    "zephyr": "Yamanin Zephyr"
+  },
+  "uma_roster": [
+    {
+      "name": "Admire Vega",
+      "in_game_nicknames": [
+        "Ayabe"
+      ],
+      "community_nicknames": [
+        "Ayabe"
+      ],
+      "aliases": [
+        "Ayabe"
+      ],
+      "notes": "IRL nickname is \"Adobe\""
+    },
+    {
+      "name": "Agnes Digital",
+      "in_game_nicknames": [
+        "Digital"
+      ],
+      "community_nicknames": [
+        "Digitan"
+      ],
+      "aliases": [
+        "Digital",
+        "Digitan"
+      ],
+      "notes": "Agnes is crown name"
+    },
+    {
+      "name": "Agnes Tachyon",
+      "in_game_nicknames": [
+        "Tachyon"
+      ],
+      "community_nicknames": [
+        "Tachy"
+      ],
+      "aliases": [
+        "Tachyon",
+        "Tachy"
+      ],
+      "notes": "Agnes is crown name"
+    },
+    {
+      "name": "Air Groove",
+      "in_game_nicknames": [
+        "Groove",
+        "Guru-nee (Duramente)"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Groove",
+        "Guru-nee",
+        "Guru-nee (Duramente)"
+      ],
+      "notes": "Air is crown name"
+    },
+    {
+      "name": "Air Messiah",
+      "in_game_nicknames": [
+        "Messiah"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Messiah"
+      ],
+      "notes": "Air is crown name"
+    },
+    {
+      "name": "Air Shakur",
+      "in_game_nicknames": [
+        "Shakur"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Shakur"
+      ],
+      "notes": "Air is crown name"
+    },
+    {
+      "name": "Almond Eye",
+      "in_game_nicknames": [
+        "Ai-chan"
+      ],
+      "community_nicknames": [
+        "Final boss"
+      ],
+      "aliases": [
+        "Ai-chan",
+        "Final boss"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Aston Machan",
+      "in_game_nicknames": [
+        "Machan"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Machan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Bamboo Memory",
+      "in_game_nicknames": [
+        "Bamboo"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Bamboo"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Believe",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Biko Pegasus",
+      "in_game_nicknames": [
+        "Biko"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Biko"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Biwa Hayahide",
+      "in_game_nicknames": [
+        "Hayahide"
+      ],
+      "community_nicknames": [
+        "Biwa"
+      ],
+      "aliases": [
+        "Hayahide",
+        "Biwa"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Blast Onepiece",
+      "in_game_nicknames": [
+        "Onepiece",
+        "Bu-chan"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Onepiece",
+        "Bu-chan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Bubble Gum Fellow",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Buena Vista",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Calstone Light O",
+      "in_game_nicknames": [
+        "Light O"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Light O"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Cesario",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Cheval Grand",
+      "in_game_nicknames": [
+        "Cheval",
+        "Shuvacchi (Vivlos)"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Cheval",
+        "Shuvacchi",
+        "Shuvacchi (Vivlos)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Chrono Genesis",
+      "in_game_nicknames": [
+        "Chrono"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Chrono"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Copano Rickey",
+      "in_game_nicknames": [
+        "Rickey"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Rickey"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Curren Bouquetd'or",
+      "in_game_nicknames": [
+        "Bouquet"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Bouquet"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Curren Chan",
+      "in_game_nicknames": [
+        "Curren"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Curren"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Daiichi Ruby",
+      "in_game_nicknames": [
+        "Ruby",
+        "Ojou (Helios)"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Ruby",
+        "Ojou",
+        "Ojou (Helios)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Daitaku Helios",
+      "in_game_nicknames": [
+        "Helios"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Helios"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Daiwa Scarlet",
+      "in_game_nicknames": [
+        "Scarlet"
+      ],
+      "community_nicknames": [
+        "Daiwa",
+        "Dasuka"
+      ],
+      "aliases": [
+        "Scarlet",
+        "Daiwa",
+        "Dasuka"
+      ],
+      "notes": "Daiwa is a crown name, but no other Daiwas are in Uma"
+    },
+    {
+      "name": "Dantsu Flame",
+      "in_game_nicknames": [
+        "Dantsu"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Dantsu"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Daring Heart",
+      "in_game_nicknames": [
+        "Heart"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Heart"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Daring Tact",
+      "in_game_nicknames": [
+        "Tact"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Tact"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Dream Journey",
+      "in_game_nicknames": [],
+      "community_nicknames": [
+        "Dorija"
+      ],
+      "aliases": [
+        "Dorija"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Duramente",
+      "in_game_nicknames": [
+        "Dura"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Dura"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Durandal",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Eishin Flash",
+      "in_game_nicknames": [
+        "Flash"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Flash"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "El Condor Pasa",
+      "in_game_nicknames": [
+        "El"
+      ],
+      "community_nicknames": [
+        "Pasa (?)"
+      ],
+      "aliases": [
+        "El",
+        "Pasa",
+        "Pasa (?)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Espoir City",
+      "in_game_nicknames": [
+        "Espo"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Espo"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Fenomeno",
+      "in_game_nicknames": [
+        "Meno"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Meno"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Fine Motion",
+      "in_game_nicknames": [
+        "Fine"
+      ],
+      "community_nicknames": [
+        "Finemo"
+      ],
+      "aliases": [
+        "Fine",
+        "Finemo"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Fuji Kiseki",
+      "in_game_nicknames": [
+        "Fuji"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Fuji"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Furioso",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Fusaichi Pandora",
+      "in_game_nicknames": [
+        "Pandora"
+      ],
+      "community_nicknames": [
+        "Fusapan"
+      ],
+      "aliases": [
+        "Pandora",
+        "Fusapan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Gentildonna",
+      "in_game_nicknames": [
+        "Gentil"
+      ],
+      "community_nicknames": [
+        "Donna",
+        "Gorilla"
+      ],
+      "aliases": [
+        "Gentil",
+        "Donna",
+        "Gorilla"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Gold City",
+      "in_game_nicknames": [
+        "City (Shichi)"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "City",
+        "City (Shichi)"
+      ],
+      "notes": "City is a crown name, but she gets Day 1 privileges"
+    },
+    {
+      "name": "Gold Ship",
+      "in_game_nicknames": [
+        "Golshi"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Golshi"
+      ],
+      "notes": "Gorushi = 564"
+    },
+    {
+      "name": "Gran Alegria",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Grass Wonder",
+      "in_game_nicknames": [
+        "Grass"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Grass"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Haru Urara",
+      "in_game_nicknames": [
+        "Urara"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Urara"
+      ],
+      "notes": "NOT Haru"
+    },
+    {
+      "name": "Hishi Akebono",
+      "in_game_nicknames": [
+        "Akebono"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Akebono"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Hishi Amazon",
+      "in_game_nicknames": [
+        "Hishiama"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Hishiama"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Hishi Miracle",
+      "in_game_nicknames": [
+        "Mirako (ミラ子)"
+      ],
+      "community_nicknames": [
+        "Mirako (ミラ子)"
+      ],
+      "aliases": [
+        "Mirako",
+        "Mirako (ミラ子)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Hokko Tarumae",
+      "in_game_nicknames": [
+        "Tarumae"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Tarumae"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Ikuno Dictus",
+      "in_game_nicknames": [
+        "Ikuno"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Ikuno"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Inari One",
+      "in_game_nicknames": [
+        "Inari"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Inari"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Ines Fujin",
+      "in_game_nicknames": [
+        "Ines"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Ines"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Jungle Pocket",
+      "in_game_nicknames": [
+        "Pokke"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Pokke"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "K.S.Miracle",
+      "in_game_nicknames": [
+        "KS"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "KS"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Katsuragi Ace",
+      "in_game_nicknames": [
+        "Ace"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Ace"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Kawakami Princess",
+      "in_game_nicknames": [
+        "Kawakami"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Kawakami"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "King Halo",
+      "in_game_nicknames": [
+        "King"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "King"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Kitasan Black",
+      "in_game_nicknames": [
+        "Kitasan"
+      ],
+      "community_nicknames": [
+        "Kita-chan"
+      ],
+      "aliases": [
+        "Kitasan",
+        "Kita-chan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Loves Only You",
+      "in_game_nicknames": [
+        "Love"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Love"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Lucky Lilac",
+      "in_game_nicknames": [
+        "Lilac",
+        "Lala (Blast Onepiece)"
+      ],
+      "community_nicknames": [
+        "Lala"
+      ],
+      "aliases": [
+        "Lilac",
+        "Lala",
+        "Lala (Blast Onepiece)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Manhattan Cafe",
+      "in_game_nicknames": [
+        "Cafe"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Cafe"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Maruzensky",
+      "in_game_nicknames": [
+        "Maruzen"
+      ],
+      "community_nicknames": [
+        "Maru"
+      ],
+      "aliases": [
+        "Maruzen",
+        "Maru"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Marvelous Sunday",
+      "in_game_nicknames": [
+        "Marvelous",
+        "Mabe"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Marvelous",
+        "Mabe"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Matikanefukukitaru",
+      "in_game_nicknames": [
+        "Fukukitaru"
+      ],
+      "community_nicknames": [
+        "Fuku"
+      ],
+      "aliases": [
+        "Fukukitaru",
+        "Fuku"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Matikanetannhauser",
+      "in_game_nicknames": [
+        "Tannhauser",
+        "Machitan"
+      ],
+      "community_nicknames": [
+        "Machitan",
+        "Mambo"
+      ],
+      "aliases": [
+        "Tannhauser",
+        "Machitan",
+        "Mambo"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mayano Top Gun",
+      "in_game_nicknames": [
+        "Maya",
+        "Mayano"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Maya",
+        "Mayano"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Meisho Doto",
+      "in_game_nicknames": [
+        "Doto"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Doto"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mejiro Ardan",
+      "in_game_nicknames": [
+        "Ardan"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Ardan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mejiro Bright",
+      "in_game_nicknames": [
+        "Bright"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Bright"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mejiro Dober",
+      "in_game_nicknames": [
+        "Dober"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Dober"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mejiro McQueen",
+      "in_game_nicknames": [
+        "McQueen",
+        "Mac (Gold Ship)"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "McQueen",
+        "Mac",
+        "Mac (Gold Ship)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mejiro Palmer",
+      "in_game_nicknames": [
+        "Palmer"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Palmer"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mejiro Ramonu",
+      "in_game_nicknames": [
+        "Ramonu"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Ramonu"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mejiro Ryan",
+      "in_game_nicknames": [
+        "Ryan"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Ryan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mihono Bourbon",
+      "in_game_nicknames": [
+        "Bourbon"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Bourbon"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Mr. C.B.",
+      "in_game_nicknames": [
+        "CB"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "CB"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Nakayama Festa",
+      "in_game_nicknames": [
+        "Nakayama"
+      ],
+      "community_nicknames": [
+        "Festa"
+      ],
+      "aliases": [
+        "Nakayama",
+        "Festa"
+      ],
+      "notes": "Since Nakayama is the name of the track, Festa is used in community"
+    },
+    {
+      "name": "Narita Brian",
+      "in_game_nicknames": [
+        "Brian"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Brian"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Narita Taishin",
+      "in_game_nicknames": [
+        "Taishin"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Taishin"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Narita Top Road",
+      "in_game_nicknames": [
+        "Topro"
+      ],
+      "community_nicknames": [
+        "NTR"
+      ],
+      "aliases": [
+        "Topro",
+        "NTR"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Neo Universe",
+      "in_game_nicknames": [
+        "Uni",
+        "Universe"
+      ],
+      "community_nicknames": [
+        "Neouni"
+      ],
+      "aliases": [
+        "Uni",
+        "Universe",
+        "Neouni"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Nice Nature",
+      "in_game_nicknames": [
+        "Neicha"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Neicha"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Nishino Flower",
+      "in_game_nicknames": [
+        "Flower"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Flower"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "No Reason",
+      "in_game_nicknames": [
+        "Reason"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Reason"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "North Flight",
+      "in_game_nicknames": [
+        "Fu-chan"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Fu-chan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Oguri Cap",
+      "in_game_nicknames": [
+        "Oguri"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Oguri"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Orfevre",
+      "in_game_nicknames": [
+        "Orfe"
+      ],
+      "community_nicknames": [
+        "Orfy"
+      ],
+      "aliases": [
+        "Orfe",
+        "Orfy"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Rhein Kraft",
+      "in_game_nicknames": [
+        "Kraft"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Kraft"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Rice Shower",
+      "in_game_nicknames": [
+        "Rice"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Rice"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Royce and Royce",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Sakura Bakushin O",
+      "in_game_nicknames": [
+        "Bakushin O"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Bakushin O"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Sakura Chiyono O",
+      "in_game_nicknames": [
+        "Chiyo-chan"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Chiyo-chan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Sakura Laurel",
+      "in_game_nicknames": [
+        "Laurel"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Laurel"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Satono Crown",
+      "in_game_nicknames": [
+        "Crown",
+        "Kura-chan"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Crown",
+        "Kura-chan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Satono Diamond",
+      "in_game_nicknames": [
+        "Dia"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Dia"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Seeking the Pearl",
+      "in_game_nicknames": [
+        "Pearl"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Pearl"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Seiun Sky",
+      "in_game_nicknames": [
+        "Sei"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Sei"
+      ],
+      "notes": "In-game she's called both \"Seiun\" and \"Sky\""
+    },
+    {
+      "name": "Shinko Windy",
+      "in_game_nicknames": [
+        "Windy"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Windy"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Silence Suzuka",
+      "in_game_nicknames": [
+        "Suzuka"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Suzuka"
+      ],
+      "notes": "Technically Suzuka is the crown name but it has stuck"
+    },
+    {
+      "name": "Sirius Symboli",
+      "in_game_nicknames": [
+        "Sirius"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Sirius"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Smart Falcon",
+      "in_game_nicknames": [
+        "Falco (ファル子)"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Falco",
+        "Falco (ファル子)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Sounds of Earth",
+      "in_game_nicknames": [
+        "Earth"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Earth"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Special Week",
+      "in_game_nicknames": [
+        "Spe"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Spe"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Stay Gold",
+      "in_game_nicknames": [
+        "Stego",
+        "Anego (Dorija)"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Stego",
+        "Anego",
+        "Anego (Dorija)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Still in Love",
+      "in_game_nicknames": [
+        "Still"
+      ],
+      "community_nicknames": [
+        "Silly"
+      ],
+      "aliases": [
+        "Still",
+        "Silly"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Super Creek",
+      "in_game_nicknames": [
+        "Creek"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Creek"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Sweep Tosho",
+      "in_game_nicknames": [
+        "Sweep"
+      ],
+      "community_nicknames": [
+        "Sweepy (Tensai Mahou Shoujo)"
+      ],
+      "aliases": [
+        "Sweep",
+        "Sweepy",
+        "Sweepy (Tensai Mahou Shoujo)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Symboli Kris S",
+      "in_game_nicknames": [
+        "Kris S"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Kris S"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Symboli Rudolf",
+      "in_game_nicknames": [
+        "Rudolf",
+        "Kaichou"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Rudolf",
+        "Kaichou"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "T.M. Opera O",
+      "in_game_nicknames": [
+        "Opera O"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Opera O"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Taiki Shuttle",
+      "in_game_nicknames": [
+        "Taiki"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Taiki"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Tamamo Cross",
+      "in_game_nicknames": [
+        "Tama",
+        "Tamtam (EN)"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Tama",
+        "Tamtam",
+        "Tamtam (EN)"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Tanino Gimlet",
+      "in_game_nicknames": [
+        "Gim",
+        "Gimlet"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Gim",
+        "Gimlet"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Tap Dance City",
+      "in_game_nicknames": [
+        "Tap"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Tap"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Tokai Teio",
+      "in_game_nicknames": [
+        "Teio"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Teio"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Tosen Jordan",
+      "in_game_nicknames": [
+        "Jordan"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Jordan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Transcend",
+      "in_game_nicknames": [
+        "Tora-chan"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Tora-chan"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Tsurumaru Tsuyoshi",
+      "in_game_nicknames": [
+        "Tsuru"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Tsuru"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Twin Turbo",
+      "in_game_nicknames": [
+        "Turbo"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Turbo"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Verxina",
+      "in_game_nicknames": [
+        "Shina"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Shina"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Vivlos",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Vodka",
+      "in_game_nicknames": [],
+      "community_nicknames": [],
+      "aliases": [],
+      "notes": ""
+    },
+    {
+      "name": "Win Variation",
+      "in_game_nicknames": [
+        "Variation",
+        "Shion"
+      ],
+      "community_nicknames": [
+        "Shion",
+        "Winba"
+      ],
+      "aliases": [
+        "Variation",
+        "Shion",
+        "Winba"
+      ],
+      "notes": "There is little consensus currently"
+    },
+    {
+      "name": "Winning Ticket",
+      "in_game_nicknames": [
+        "Ticket",
+        "Chikezo"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Ticket",
+        "Chikezo"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Wonder Acute",
+      "in_game_nicknames": [
+        "Acute"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Acute"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Yaeno Muteki",
+      "in_game_nicknames": [
+        "Yaeno"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Yaeno"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Yamanin Zephyr",
+      "in_game_nicknames": [
+        "Zephyr"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Zephyr"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Yukino Bijin",
+      "in_game_nicknames": [
+        "Yukino"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Yukino"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Zenno Rob Roy",
+      "in_game_nicknames": [
+        "Rob Roy"
+      ],
+      "community_nicknames": [],
+      "aliases": [
+        "Rob Roy"
+      ],
+      "notes": ""
+    }
+  ]
+}

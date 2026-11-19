@@ -1,0 +1,58 @@
+name: Generate Nicknames Markdown Reference
+
+on:
+  push:
+    paths:
+      - 'uma_nicknames.json'
+      - 'scripts/generate-markdown.py'
+  pull_request:
+    paths:
+      - 'uma_nicknames.json'
+      - 'scripts/generate-markdown.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-sync-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate Markdown from JSON
+        run: |
+          python3 scripts/generate-markdown.py
+
+      - name: Check for changes
+        id: git_status
+        run: |
+          git status --porcelain
+          if [[ -n $(git status --porcelain Uma_nicknames.md) ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push updated Markdown
+        if: steps.git_status.outputs.changed == 'true' && github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Uma_nicknames.md
+          git commit -m "docs: auto-generate Uma_nicknames.md from uma_nicknames.json [skip ci]"
+          git push
+
+      - name: Verify consistency on pull requests
+        if: steps.git_status.outputs.changed == 'true' && github.event_name == 'pull_request'
+        run: |
+          echo "::error::Uma_nicknames.md is out of sync with uma_nicknames.json. Please run 'python3 scripts/generate-markdown.py' locally and commit the result."
+          exit 1
