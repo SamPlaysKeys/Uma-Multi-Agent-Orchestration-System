@@ -137,3 +137,11 @@ With symlink mode, any changes you make or pull in this repository (agent prompt
   /agent biwa
   /agent golshi
   ```
+
+---
+
+## ⚖️ Legal & Trademarks
+
+*Umamusume: Pretty Derby* and all associated character names, designs, and related media are the registered trademarks and intellectual property of **Cygames, Inc.** 
+
+This project is an unofficial, non-commercial fan-created developer tool engineered for OpenCode. It is not affiliated with, endorsed by, or sponsored by Cygames. All code and orchestration workflows are released under the MIT License.
