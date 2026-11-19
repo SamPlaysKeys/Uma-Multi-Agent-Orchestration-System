@@ -1,8 +1,20 @@
-# 🐎 Umamusume Multi-Agent Orchestration System for OpenCode
+<div align="center">
 
-A high-performance, *Umamusume: Pretty Derby*-themed multi-agent coordination architecture built for [OpenCode](https://opencode.ai).
+<img src="assets/uma-os-banner.png" alt="UMA OS - Umamusume Multi-Agent Orchestration System" width="100%" />
 
-Designed for hybrid local + cloud LLM routing, featuring specialized agent personalities, autonomous subagent delegation, dynamic model discovery, and an interactive Tracen Club Lounge round-table brainstorming environment.
+# 🐎 UMA OS (Umamusume Multi-Agent Orchestration System)
+
+[![OpenCode Compatible](https://img.shields.io/badge/OpenCode-V2.2.6+-10B981?style=for-the-badge&logo=codeigniter&logoColor=white)](https://opencode.ai)
+[![Architecture](https://img.shields.io/badge/Architecture-Hybrid%20Local%20%2B%20Cloud-6366F1?style=for-the-badge)](https://github.com)
+[![License](https://img.shields.io/badge/License-MIT-F43F5E?style=for-the-badge)](LICENSE)
+
+*A high-speed, Umamusume-themed agent coordination architecture engineered for [OpenCode](https://opencode.ai).*
+
+</div>
+
+---
+
+Designed for hybrid local (LM Studio / MLX / llama.cpp) and cloud (Google Vertex / Claude / Gemini) LLM routing, featuring specialized agent personalities, autonomous subagent delegation, dynamic model discovery, and an interactive Tracen Club Lounge round-table brainstorming environment.
 
 ---
 
