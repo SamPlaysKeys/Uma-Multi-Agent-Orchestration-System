@@ -56,7 +56,7 @@ flowchart TD
    - Rudolf does not force a formal summary every turn; she chats naturally and only synthesizes when asked or when things get out of hand.
 2. **Guest Umas & Nickname Resolution**:
    - Address any Umamusume outside the squad (e.g. *"What would Mambo think?"* or *"Ask Rice"*).
-   - The lounge uses `uma_nicknames.json` (and `Uma_nicknames.md`) to map community nicknames to canonical names (e.g., Mambo $\to$ Matikanetannhauser).
+   - The lounge uses `data/uma_nicknames.json` (and `Uma_nicknames.md`) to map community nicknames to canonical names (e.g., Mambo $\to$ Matikanetannhauser).
    - If lore or mannerisms are needed, it performs a real-time web search and has her jump into the conversation in character.
 3. **Random Campus Drop-Ins (~15-20%)**:
    - Every time you join the lounge, there is a small chance an unexpected student (e.g., Oguri Cap eating snacks in the corner, Twin Turbo bursting through the door, or Nice Nature observing from the doorway) is already hanging out.
@@ -65,10 +65,11 @@ flowchart TD
 
 ## 📂 Repository Structure
 
-- `uma_nicknames.json`: Machine-readable single source of truth containing 129 canonical Umamusume, in-game nicknames, community callouts, and an indexed `alias_to_canonical` dictionary for instant $O(1)$ lookups.
-- `Uma_nicknames.md`: Human-readable Markdown reference table, automatically synchronized from `uma_nicknames.json`.
-- `scripts/generate-markdown.py`: Generator script that parses `uma_nicknames.json` and outputs `Uma_nicknames.md`.
-- `.github/workflows/generate-nicknames-markdown.yml`: GitHub Actions workflow that automatically regenerates and commits `Uma_nicknames.md` whenever `uma_nicknames.json` is updated!
+- `data/`: Lore, reference, and game data (e.g., `uma_nicknames.json`, ready for future expansions like trivia, races, skills).
+  - `data/uma_nicknames.json`: Machine-readable single source of truth containing 129 canonical Umamusume, in-game nicknames, community callouts, and an indexed `alias_to_canonical` dictionary for instant $O(1)$ lookups.
+- `Uma_nicknames.md`: Human-readable Markdown reference table, automatically synchronized from `data/uma_nicknames.json`.
+- `scripts/generate-markdown.py`: Generator script that parses `data/uma_nicknames.json` and outputs `Uma_nicknames.md`.
+- `.github/workflows/generate-nicknames-markdown.yml`: GitHub Actions workflow that automatically regenerates and commits `Uma_nicknames.md` whenever `data/uma_nicknames.json` is updated!
 - `agents/`: Agent system prompts (`symboli.md`, `tracen-lounge.md`, `biwa.md`, `golshi.md`, `spe-chan.md`, `super-creek.md`, `tachyon.md`).
 - `skills/`: OpenCode skills (`model-roster`).
 - `install.sh`: One-click local deployment script into `~/.config/opencode/`.

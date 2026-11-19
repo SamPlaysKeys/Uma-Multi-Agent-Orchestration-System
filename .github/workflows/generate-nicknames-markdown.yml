@@ -3,11 +3,11 @@ name: Generate Nicknames Markdown Reference
 on:
   push:
     paths:
-      - 'uma_nicknames.json'
+      - 'data/uma_nicknames.json'
       - 'scripts/generate-markdown.py'
   pull_request:
     paths:
-      - 'uma_nicknames.json'
+      - 'data/uma_nicknames.json'
       - 'scripts/generate-markdown.py'
   workflow_dispatch:
 
