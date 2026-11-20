@@ -1,7 +1,6 @@
 import { Plugin } from "@opencode/plugin";
-import * as fs from "node:fs";
 import * as path from "node:path";
-import { fileURLToPath } from "node:url";
+import { loadJsonSafe, resolveDataDir } from "./data.js";
 
 interface CameoCharacter {
   name: string;
@@ -26,41 +25,6 @@ interface NicknameData {
   }>;
 }
 
-/**
- * Loads JSON data safely from repo data directory relative to this plugin.
- */
-function loadJsonSafe<T>(filePath: string): T | null {
-  try {
-    if (fs.existsSync(filePath)) {
-      const raw = fs.readFileSync(filePath, "utf-8");
-      return JSON.parse(raw) as T;
-    }
-  } catch (err) {
-    console.error(`[opencode-uma-os] Failed to load ${filePath}:`, err);
-  }
-  return null;
-}
-
-/**
- * Locates the repository root containing `data/uma_cameos.json` across possible
- * runtime locations (`plugin/dist/`, `plugin/src/`, `plugin/`, or repo root).
- */
-function resolveRepoRoot(startDir: string): string | null {
-  const candidates = [
-    path.resolve(startDir, "../.."),
-    path.resolve(startDir, ".."),
-    path.resolve(startDir),
-  ];
-
-  for (const candidate of candidates) {
-    if (fs.existsSync(path.join(candidate, "data", "uma_cameos.json"))) {
-      return candidate;
-    }
-  }
-
-  return null;
-}
-
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -74,25 +38,14 @@ function buildWordMatcher(term: string): RegExp | null {
 export default Plugin.define({
   id: "opencode-uma-os",
   async setup(ctx) {
-    // Resolve paths to repo data files.
-    // In ES modules, __dirname is not globally defined. Use fileURLToPath so
-    // percent-encoded characters (e.g., spaces in directory names) are decoded,
-    // and resolve symlinks so symlinked entrypoints map back to the real repo.
-    let pluginDir: string | null = null;
-    try {
-      const rawFile = fileURLToPath(import.meta.url);
-      const resolvedFile = fs.existsSync(rawFile) ? fs.realpathSync(rawFile) : rawFile;
-      pluginDir = path.dirname(resolvedFile);
-    } catch {
-      pluginDir = null;
-    }
-    const repoRoot = pluginDir ? resolveRepoRoot(pluginDir) : null;
+    // Resolve paths to repo data files relative to the realpath'd module location.
+    const dataDir = resolveDataDir(import.meta.url);
 
-    const cameosData = repoRoot
-      ? loadJsonSafe<CameoData>(path.join(repoRoot, "data", "uma_cameos.json"))
+    const cameosData = dataDir
+      ? loadJsonSafe<CameoData>(path.join(dataDir, "uma_cameos.json"))
       : null;
-    const nicknamesData = repoRoot
-      ? loadJsonSafe<NicknameData>(path.join(repoRoot, "data", "uma_nicknames.json"))
+    const nicknamesData = dataDir
+      ? loadJsonSafe<NicknameData>(path.join(dataDir, "uma_nicknames.json"))
       : null;
 
     const cameoCharacters = cameosData?.characters || [];
