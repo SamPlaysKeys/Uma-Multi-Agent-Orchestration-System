@@ -79,6 +79,8 @@ flowchart TD
 
 - `data/`: Lore, reference, and game data (e.g., `uma_nicknames.json`, ready for future expansions like trivia, races, skills).
   - `data/uma_nicknames.json`: Machine-readable single source of truth containing 129 canonical Umamusume, in-game nicknames, community callouts, and an indexed `alias_to_canonical` dictionary for instant $O(1)$ lookups.
+- `uma-config.yaml`: Single source of truth for model mapping across capability tiers and provider presets.
+- `scripts/configure.py`: Interactive configuration wizard and sync script for model assignments.
 - `Uma_nicknames.md`: Human-readable Markdown reference table, automatically synchronized from `data/uma_nicknames.json`.
 - `scripts/generate-markdown.py`: Generator script that parses `data/uma_nicknames.json` and outputs `Uma_nicknames.md`.
 - `.github/workflows/generate-nicknames-markdown.yml`: GitHub Actions workflow that automatically regenerates and commits `Uma_nicknames.md` whenever `data/uma_nicknames.json` is updated!
@@ -137,6 +139,65 @@ With symlink mode, any changes you make or pull in this repository (agent prompt
   /agent biwa
   /agent golshi
   ```
+
+---
+
+## ⚙️ Model-Agnostic Setup & Configuration (`uma-config.yaml`)
+
+The system decouples agent personas and prompts from specific compute endpoints using a capability tier architecture defined in [`uma-config.yaml`](./uma-config.yaml).
+
+### 🏆 Capability Tiers
+
+| Capability Tier | Agent Assigned | Role Profile |
+| :--- | :--- | :--- |
+| **`orchestrator`** | 👑 Rudolf, ☕ Lounge | Deep planning, master tool delegation, long context synthesis |
+| **`workhorse`** | 🍠 Special Week | Core code editing, refactoring, test execution |
+| **`debugger`** | 🍵 Super Creek | Surgical bug diagnostics, root-cause investigation, caretaker resilience |
+| **`researcher`** | 🧪 Agnes Tachyon | Adversarial review, edge-case probing, API & schema verification |
+| **`fast_triage`** | 👓 Biwa Hayahide | Low-latency complexity assessment, quick algorithmic decisions |
+| **`scout`** | 🚢 Gold Ship | Ultra-fast read-only search, grep/glob discovery, symbol mapping |
+
+### 🎛️ Provider Presets & Interactive Wizard
+
+Run the interactive setup wizard at any time during installation or later:
+
+```bash
+# Launch interactive configuration wizard during installation
+./install.sh --configure
+
+# Or run the configurator script directly:
+python3 scripts/configure.py
+```
+
+The wizard allows you to:
+1. **Choose a Provider Preset**: Instant 1-click switching to `anthropic`, `openai`, `google-vertex`, `google-gemini`, `openrouter`, `ollama`, `lmstudio`, or `free-opencode`.
+2. **Set a Single Universal Model**: Assign one model (e.g. `anthropic/claude-3-7-sonnet`) to all agents across the entire squad.
+3. **Customize Individual Umas**: Override specific girls while keeping the rest on the active preset.
+4. **Auto-Detect Models**: Query live OpenCode providers via `/api/model`.
+
+#### Non-Interactive CLI Quick Commands:
+```bash
+# Switch to OpenAI preset
+python3 scripts/configure.py --preset openai
+
+# Switch to Anthropic preset
+python3 scripts/configure.py --preset anthropic
+
+# Assign one model to all agents
+python3 scripts/configure.py --single-model anthropic/claude-3-7-sonnet
+
+# Inspect current assignments
+python3 scripts/configure.py --show
+
+# Re-apply uma-config.yaml to agents/*.md
+python3 scripts/configure.py --apply
+```
+
+### 🔌 Future Roadmap: Native OpenCode Plugin
+As Trainer envisioned, this capability-tier architecture lays the groundwork for packaging UMA OS as an **official OpenCode plugin**. A plugin will enable:
+- In-client configuration via OpenCode's settings panel.
+- Live `/uma config` or `/uma preset` slash commands without touching the terminal.
+- Dynamic runtime model resolution that maps capability tiers on the fly based on active API keys.
 
 ---
 

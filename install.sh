@@ -6,6 +6,7 @@ OPENCODE_DIR="${HOME}/.config/opencode"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
 MODE="symlink"
+RUN_CONFIGURE=false
 
 # Parse CLI options
 while [[ $# -gt 0 ]]; do
@@ -18,10 +19,15 @@ while [[ $# -gt 0 ]]; do
       MODE="symlink"
       shift
       ;;
+    --configure|-i|--setup)
+      RUN_CONFIGURE=true
+      shift
+      ;;
     --help|-h)
-      echo "Usage: ./install.sh [--symlink | --copy]"
-      echo "  --symlink, -s  Link ~/.config/opencode agents & skills to this repo (default)"
-      echo "  --copy, -c     Copy agents & skills as standalone files"
+      echo "Usage: ./install.sh [--symlink | --copy] [--configure]"
+      echo "  --symlink, -s     Link ~/.config/opencode agents & skills to this repo (default)"
+      echo "  --copy, -c        Copy agents & skills as standalone files"
+      echo "  --configure, -i   Launch interactive model configuration wizard"
       exit 0
       ;;
     *)
@@ -44,6 +50,19 @@ mkdir -p "${OPENCODE_DIR}/commands"
 chmod +x "${SCRIPT_DIR}/skills/model-roster/scripts/"*.py 2>/dev/null || true
 if [ -d "${SCRIPT_DIR}/scripts" ]; then
   chmod +x "${SCRIPT_DIR}/scripts/"*.py 2>/dev/null || true
+fi
+
+# Model configuration check / wizard
+if [ "${RUN_CONFIGURE}" = true ]; then
+  if command -v python3 >/dev/null 2>&1 && [ -f "${SCRIPT_DIR}/scripts/configure.py" ]; then
+    python3 "${SCRIPT_DIR}/scripts/configure.py"
+  else
+    echo "⚠️ Python 3 is required to run the configuration wizard."
+  fi
+elif [ -f "${SCRIPT_DIR}/uma-config.yaml" ] && [ -f "${SCRIPT_DIR}/scripts/configure.py" ]; then
+  if command -v python3 >/dev/null 2>&1; then
+    python3 "${SCRIPT_DIR}/scripts/configure.py" --apply
+  fi
 fi
 
 # Deploy agents

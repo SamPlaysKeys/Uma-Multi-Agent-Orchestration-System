@@ -1,0 +1,137 @@
+# ==============================================================================
+# 🐎 UMA OS — Model Configuration & Capability Tier Mapping
+# ==============================================================================
+# This configuration decouples the Umamusume agent personas and prompts from
+# specific model endpoints. 
+#
+# Run the interactive configuration wizard at any time:
+#   ./install.sh --configure
+# Or directly:
+#   python3 scripts/configure.py
+#
+# To apply changes made directly to this file:
+#   python3 scripts/configure.py --apply
+# ==============================================================================
+
+# Active preset currently applied to the agents:
+# Options: anthropic | openai | google-vertex | google-gemini | openrouter | ollama | free-opencode | custom
+active_preset: google-vertex
+
+# Capability Tier Definitions
+# Each tier represents a computational and behavioral profile:
+tier_definitions:
+  orchestrator:
+    description: "High-reasoning, deep planning, long context, master tool orchestration"
+    assigned_agents: ["symboli", "tracen-lounge"]
+  workhorse:
+    description: "Fast, dependable code generation, refactoring, and test suite execution"
+    assigned_agents: ["spe-chan"]
+  debugger:
+    description: "Deep root-cause analysis, tracing edge cases, calming diagnostic patience"
+    assigned_agents: ["super-creek"]
+  researcher:
+    description: "Adversarial architecture critique, API/schema verification, deep research"
+    assigned_agents: ["tachyon"]
+  fast_triage:
+    description: "Low-latency algorithmic triage, complexity assessment, quick routing"
+    assigned_agents: ["biwa"]
+  scout:
+    description: "Ultra-fast read-only search, grep/glob discovery, symbol mapping"
+    assigned_agents: ["golshi"]
+
+# Mapping of Agent -> Capability Tier
+agent_tiers:
+  symboli: orchestrator
+  tracen-lounge: orchestrator
+  spe-chan: workhorse
+  super-creek: debugger
+  tachyon: researcher
+  biwa: fast_triage
+  golshi: scout
+
+# Provider Presets
+# All agents utilize the selected provider family with models tuned to their tier:
+presets:
+  # 1. Google Vertex (The original high-performance hybrid cloud + local setup)
+  google-vertex:
+    orchestrator: "google-vertex/claude-sonnet-5-5@default"
+    workhorse: "google-vertex/gemini-4-hydrogen"
+    debugger: "google-vertex/claude-sonnet-5-5@default"
+    researcher: "google-vertex/gemini-4-carbon"
+    fast_triage: "google-vertex/gemini-3.5-flash-lite"
+    scout: "lmstudio/google/gemma-4-e4b"
+
+  # 2. Anthropic Direct (Claude 3.7 / 3.5 stack)
+  anthropic:
+    orchestrator: "anthropic/claude-3-7-sonnet"
+    workhorse: "anthropic/claude-3-7-sonnet"
+    debugger: "anthropic/claude-3-7-sonnet"
+    researcher: "anthropic/claude-3-7-sonnet"
+    fast_triage: "anthropic/claude-3-5-haiku"
+    scout: "anthropic/claude-3-5-haiku"
+
+  # 3. OpenAI Direct (GPT-4o / o3-mini stack)
+  openai:
+    orchestrator: "openai/o3-mini"
+    workhorse: "openai/gpt-4o"
+    debugger: "openai/gpt-4o"
+    researcher: "openai/o3-mini"
+    fast_triage: "openai/gpt-4o-mini"
+    scout: "openai/gpt-4o-mini"
+
+  # 4. Google Gemini Direct (Google AI Studio)
+  google-gemini:
+    orchestrator: "google/gemini-2.5-pro"
+    workhorse: "google/gemini-2.5-flash"
+    debugger: "google/gemini-2.5-pro"
+    researcher: "google/gemini-2.5-pro"
+    fast_triage: "google/gemini-2.5-flash"
+    scout: "google/gemini-2.5-flash"
+
+  # 5. OpenRouter (Multi-provider aggregator)
+  openrouter:
+    orchestrator: "openrouter/anthropic/claude-3.7-sonnet"
+    workhorse: "openrouter/openai/gpt-4o"
+    debugger: "openrouter/anthropic/claude-3.7-sonnet"
+    researcher: "openrouter/google/gemini-2.5-pro"
+    fast_triage: "openrouter/google/gemini-2.5-flash"
+    scout: "openrouter/meta-llama/llama-3.3-70b-instruct"
+
+  # 6. Local Ollama (Self-hosted local models)
+  ollama:
+    orchestrator: "ollama/qwen2.5-coder:32b"
+    workhorse: "ollama/qwen2.5-coder:14b"
+    debugger: "ollama/qwen2.5-coder:32b"
+    researcher: "ollama/qwen2.5:32b"
+    fast_triage: "ollama/qwen2.5-coder:7b"
+    scout: "ollama/qwen2.5-coder:7b"
+
+  # 7. Local LM Studio (Local inference server)
+  lmstudio:
+    orchestrator: "lmstudio/qwen2.5-coder-32b"
+    workhorse: "lmstudio/qwen2.5-coder-14b"
+    debugger: "lmstudio/qwen2.5-coder-32b"
+    researcher: "lmstudio/qwen2.5-32b"
+    fast_triage: "lmstudio/google/gemma-4-e4b"
+    scout: "lmstudio/google/gemma-4-e4b"
+
+  # 8. OpenCode Free Models (Zero API key required)
+  free-opencode:
+    orchestrator: "opencode/big-pickle"
+    workhorse: "opencode/flint-40b-free"
+    debugger: "opencode/nemotron-3.5-super-vl-free"
+    researcher: "opencode/deepseek-v4.1-flash-free"
+    fast_triage: "opencode/hy4-flash-free"
+    scout: "opencode/hy4-flash-free"
+
+# Individual Overrides
+# Any model specified here overrides the active preset for that specific agent.
+# Set to null or comment out to follow the active preset.
+custom_agent_models:
+  symboli: null
+  tracen-lounge: null
+  biwa: null
+  golshi: null
+  spe-chan: null
+  super-creek: null
+  tachyon: null
