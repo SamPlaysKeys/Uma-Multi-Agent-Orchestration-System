@@ -170,13 +170,16 @@ python3 scripts/configure.py
 ```
 
 The wizard allows you to:
-1. **Choose a Provider Preset**: Instant 1-click switching to `anthropic`, `openai`, `google-vertex`, `google-gemini`, `openrouter`, `ollama`, `lmstudio`, or `free-opencode`.
+1. **Choose a Provider Preset**: Instant 1-click switching to `aperture` (by Tailscale), `anthropic`, `openai`, `google-vertex`, `google-gemini`, `openrouter`, `ollama`, `lmstudio`, or `free-opencode`.
 2. **Set a Single Universal Model**: Assign one model (e.g. `anthropic/claude-3-7-sonnet`) to all agents across the entire squad.
 3. **Customize Individual Umas**: Override specific girls while keeping the rest on the active preset.
 4. **Auto-Detect Models**: Query live OpenCode providers via `/api/model`.
 
 #### Non-Interactive CLI Quick Commands:
 ```bash
+# Switch to Aperture (by Tailscale) preset
+python3 scripts/configure.py --preset aperture
+
 # Switch to OpenAI preset
 python3 scripts/configure.py --preset openai
 

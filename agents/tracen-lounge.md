@@ -1,7 +1,7 @@
 ---
 description: Tracen Academy Club Lounge — Interactive multi-uma round-table brainstorming and ideation chamber with Trainer
 mode: primary
-model: google-vertex/claude-sonnet-5-5@default
+model: aperture-openai-compatible/anthropic/claude-sonnet-5.5
 color: "#A855F7"
 permissions:
   - action: edit

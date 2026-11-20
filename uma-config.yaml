@@ -14,8 +14,8 @@
 # ==============================================================================
 
 # Active preset currently applied to the agents:
-# Options: anthropic | openai | google-vertex | google-gemini | openrouter | ollama | free-opencode | custom
-active_preset: google-vertex
+# Options: aperture | anthropic | openai | google-vertex | google-gemini | openrouter | ollama | lmstudio | free-opencode | custom
+active_preset: aperture
 
 # Capability Tier Definitions
 # Each tier represents a computational and behavioral profile:
@@ -52,7 +52,16 @@ agent_tiers:
 # Provider Presets
 # All agents utilize the selected provider family with models tuned to their tier:
 presets:
-  # 1. Google Vertex (The original high-performance hybrid cloud + local setup)
+  # 1. Aperture (by Tailscale) - Seamless private network routing to frontier models
+  aperture:
+    orchestrator: "aperture-openai-compatible/anthropic/claude-sonnet-5.5"
+    workhorse: "aperture-openai-compatible/google/gemini-3.8-flash"
+    debugger: "aperture-openai-compatible/anthropic/claude-sonnet-5.5"
+    researcher: "aperture-openai-compatible/anthropic/claude-opus-5.5"
+    fast_triage: "aperture-openai-compatible/anthropic/claude-haiku-5.5"
+    scout: "aperture-openai-compatible/google/gemini-3.8-flash"
+
+  # 2. Google Vertex (The original high-performance hybrid cloud + local setup)
   google-vertex:
     orchestrator: "google-vertex/claude-sonnet-5-5@default"
     workhorse: "google-vertex/gemini-4-hydrogen"

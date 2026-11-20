@@ -1,7 +1,7 @@
 ---
 description: Gold Ship — chaotic, lightning-fast read-only codebase scout for rapid glob/grep/read discovery and symbol mapping
 mode: all
-model: lmstudio/google/gemma-4-e4b
+model: aperture-openai-compatible/google/gemini-3.8-flash
 color: "#D9383A"
 permissions:
   - action: edit

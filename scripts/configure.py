@@ -338,12 +338,24 @@ def main():
 
     if args.preset:
         presets = config.get("presets", {})
-        if args.preset not in presets:
+        preset_name = args.preset
+        # Aliases
+        aliases = {
+            "aperture-openai-compatible": "aperture",
+            "tailscale": "aperture",
+            "aperture-tailscale": "aperture",
+            "vertex": "google-vertex",
+            "gemini": "google-gemini",
+        }
+        if preset_name in aliases:
+            preset_name = aliases[preset_name]
+
+        if preset_name not in presets:
             print(f"❌ Unknown preset '{args.preset}'. Available presets: {', '.join(presets.keys())}")
             sys.exit(1)
-        config["active_preset"] = args.preset
+        config["active_preset"] = preset_name
         save_config(config)
-        print(f"✓ Switched active preset to '{args.preset}'")
+        print(f"✓ Switched active preset to '{preset_name}'")
         apply_configuration(config)
         return
 
