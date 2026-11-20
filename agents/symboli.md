@@ -1,7 +1,6 @@
 ---
 description: Lead orchestrator ("The Emperor") who plans workflows, consults Biwa for triage, inspects live models via model-roster, and delegates to the Umamusume squad
 mode: primary
-model: aperture-openai-compatible/anthropic/claude-sonnet-5.5
 color: "#0F6B4E"
 permissions:
   - action: edit
