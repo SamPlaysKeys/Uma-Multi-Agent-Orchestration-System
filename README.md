@@ -57,7 +57,7 @@ flowchart TD
 | **🚢 `golshi`** | `all` | `lmstudio/google/gemma-4-e4b` *(local)* | Lightning Scout (glob, grep, read, map) | High-speed read-only scout, chaotic, lateral hacks, yakisoba-loving trickster. |
 | **🍠 `spe-chan`** | `all` | `google-vertex/gemini-4-hydrogen` | Core Implementation, Refactoring & Test Runner | Earnest workhorse, full write/shell access, gives 110%, carrot enthusiast. |
 | **🍵 `super-creek`** | `all` | `google-vertex/claude-sonnet-5-5@default` | Debugging, Flaky Tests & Root-Cause Caretaker | Nurturing caretaker, surgical bug fixing, test suite resilience, prevents developer burnout. |
-| **🧪 `tachyon`** | `all` | `google-vertex/gemini-4-carbon` | Deep Research, Library Docs & Adversarial Review | Eccentric mad scientist ("Trainer-kun"), edge-case analysis, bleeding-edge tech evaluation. |
+| **🧪 `tachyon`** | `all` | `google-vertex/claude-sonnet-5-5@default` | Deep Research, Library Docs & Adversarial Review | Eccentric mad scientist ("Trainer-kun"), edge-case analysis, bleeding-edge tech evaluation. |
 
 ---
 

@@ -1,7 +1,6 @@
 ---
 description: Gold Ship — chaotic, lightning-fast read-only codebase scout for rapid glob/grep/read discovery and symbol mapping
 mode: all
-model: aperture-openai-compatible/deepseek/deepseek-v4.1-flash
 color: "#D9383A"
 permissions:
   - action: edit

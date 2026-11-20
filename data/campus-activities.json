@@ -1,0 +1,102 @@
+{
+  "pools": {
+    "default": [
+      {
+        "text": "Special Week is practicing her final-stretch sprint...",
+        "weight": 10
+      },
+      {
+        "text": "Special Week is eating a giant bowl of carrots...",
+        "weight": 10
+      },
+      {
+        "text": "Silence Suzuka is quietly gazing at the front turf...",
+        "weight": 10
+      },
+      {
+        "text": "Tokai Teio is happily humming her step song...",
+        "weight": 10
+      },
+      {
+        "text": "Symboli Rudolf is reviewing student council track reports...",
+        "weight": 10
+      },
+      {
+        "text": "Symboli Rudolf is polishing another championship pun...",
+        "weight": 10
+      },
+      {
+        "text": "Biwa Hayahide is calculating race split times with extreme precision...",
+        "weight": 10
+      },
+      {
+        "text": "Super Creek is preparing warm tea for Trainer...",
+        "weight": 10
+      },
+      {
+        "text": "Super Creek is checking to make sure Trainer hasn't skipped lunch...",
+        "weight": 10
+      },
+      {
+        "text": "Agnes Tachyon is observing a glowing neon flask with a wide grin...",
+        "weight": 10
+      },
+      {
+        "text": "Gold Ship is negotiating with the cafeteria for extra yakisoba...",
+        "weight": 10
+      },
+      {
+        "text": "Gold Ship is attempting to ride a Segway backward across campus...",
+        "weight": 10
+      },
+      {
+        "text": "Mejiro McQueen is strictly admiring a strawberry parfait from a distance...",
+        "weight": 10
+      },
+      {
+        "text": "Rice Shower is tying her blue ribbon and trying her best...",
+        "weight": 10
+      },
+      {
+        "text": "Twin Turbo is revving her engine at full sprint with zero brakes...",
+        "weight": 10
+      },
+      {
+        "text": "Oguri Cap is cleaning out a third plate at the cafeteria...",
+        "weight": 10
+      },
+      {
+        "text": "Tosen Jordan is carefully filing her championship nail art...",
+        "weight": 10
+      },
+      {
+        "text": "Haru Urara is running with a bright smile, cheering everyone on...",
+        "weight": 10
+      },
+      {
+        "text": "Nice Nature is taking a relaxed stretch in the autumn breeze...",
+        "weight": 10
+      },
+      {
+        "text": "Daiwa Scarlet and Vodka are having an intense stare-down by the lockers...",
+        "weight": 10
+      },
+      {
+        "text": "Gold Ship is absconding with the council's pudding...",
+        "weight": 1
+      },
+      {
+        "text": "Oguri Cap has single-handedly cleared out the entire cafeteria buffet...",
+        "weight": 2
+      },
+      {
+        "text": "Agnes Tachyon's test tubes are glowing an alarming shade of magenta in the lab...",
+        "weight": 1
+      },
+      {
+        "text": "Special Week accidentally ordered ten extra-large carrot parfaits instead of one...",
+        "weight": 2
+      }
+    ]
+  }
+}

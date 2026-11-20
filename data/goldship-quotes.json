@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "quote": "If you don't look ahead, you'll trip over your own feet! But if you look too far ahead, you'll walk right into a telephone pole!",
+    "japanese": "前ばっか見て走ってっと転ぶぞ！でも上ばっか見てっと電柱にぶつかるぞ！",
+    "context": "Track advice / Gold Ship's unique philosophy on focus and spatial awareness"
+  },
+  {
+    "id": "2",
+    "quote": "Yakisoba! Yakisoba with extra red pickled ginger! That's the real fuel of a champion!",
+    "japanese": "焼きそば！紅しょうがマシマシ焼きそば！これこそが王者の真の燃料だ！",
+    "context": "School festival stall / pre-race nutritional strategy"
+  },
+  {
+    "id": "3",
+    "quote": "Hey Trainer! Look at this sweet dropkick! Ha-chaaa!",
+    "japanese": "おいトレーナー！この華麗なるドロップキックを見ろ！ハッチャー！",
+    "context": "Post-race victory celebration aimed directly at Trainer's chest"
+  },
+  {
+    "id": "4",
+    "quote": "Rules were made to be bent into fun little balloon animals.",
+    "japanese": "ルールなんてなあ、ひねって楽しいバルーンアートにするためにあんだよ！",
+    "context": "Responding to Student Council reprimands from Symboli Rudolf"
+  },
+  {
+    "id": "5",
+    "quote": "Earth is just a stepping stone! Next stop: the Saturnian Steeplechase!",
+    "japanese": "地球なんざただの踏み台だ！次の舞台は土星の障害レースだぜ！",
+    "context": "Post-Grand Prix interview declaring intergalactic racing ambitions"
+  },
+  {
+    "id": "6",
+    "quote": "Piko-piko~ Radar activated! My antennae say someone in the cafeteria is leaving behind their carrots!",
+    "japanese": "ピコピコ〜電波受信！学食でニンジン残してるヤツがいるってアンテナがビンビン反応してんぞ！",
+    "context": "Wiggling her ear-hat antennae while patrolling campus with Special Week"
+  },
+  {
+    "id": "7",
+    "quote": "Don't blink! If you blink, you'll miss Gold Ship's legendary Warp Drive on the final corner!",
+    "japanese": "まばたきすんなよ！まばたきした瞬間にゴルシ様の最終コーナーワープドライブ見逃すからな！",
+    "context": "Executing her notorious sweep from dead last to first place"
+  },
+  {
+    "id": "8",
+    "quote": "Logic? Common sense? Those are just heavy ankle weights holding back your inner wild horse!",
+    "japanese": "常識？理論？そんなもん野生の魂を縛りつけるただの足かせだっつーの！",
+    "context": "Debating training methodology with Biwa Hayahide"
+  },
+  {
+    "id": "9",
+    "quote": "Catch me if you can, mortals! I'm already in tomorrow!",
+    "japanese": "捕まえられるもんなら捕まえてみな、地球人ども！アタシはもう明日にいるぜ！",
+    "context": "Sprinting away from disciplinary patrol after a campus prank"
+  },
+  {
+    "id": "10",
+    "quote": "Trainer, today we're training in the fourth dimension. Pack a swimsuit and a protractor.",
+    "japanese": "トレーナー、今日のトレーニングは四次元空間で行う。水着と分度器を用意しとけよ。",
+    "context": "Handing Trainer an impossible training schedule on Monday morning"
+  },
+  {
+    "id": "11",
+    "quote": "The gate opened? Aw man, I was right in the middle of a really good nap...",
+    "japanese": "ゲート開いた？うわー、いい夢のクライマックスだったのに…",
+    "context": "Classic gate antics (Takarazuka Kinen style delayed start)"
+  },
+  {
+    "id": "12",
+    "quote": "Peace peace! Gold Ship has officially graced your terminal with her presence!",
+    "japanese": "ピースピース！ゴルシちゃんが貴様のターミナルに降臨してやったぜ！",
+    "context": "Victory pose greeting Trainer through the command line"
+  },
+  {
+    "id": "13",
+    "quote": "Who you callin' the 'Fastest Dummy'?! If I'm the fastest dummy, that makes you the second-fastest dummy following right behind me!",
+    "japanese": "誰が「最速のアホ」だコラァ！アタシが最速のアホなら、テメーはその後ろ走ってる「二番目に速いアホ」だろうがよ！",
+    "context": "Trading explosive banter with Tosen Jordan while aggressively doing mutual nail care"
+  },
+  {
+    "id": "14",
+    "quote": "Hey Jordan, look! I glued sparkling rhinestones to my running shoes! Now they make noise when I gallop! Super gyaru, right?!",
+    "japanese": "おいジョーダン見ろ！靴底にデコパージュでラインストーン敷き詰めたぞ！走るたびにジャラジャラ鳴ってチョーギャルじゃね？！",
+    "context": "Proudly terrorizing Tosen Jordan with cursed DIY fashion"
+  },
+  {
+    "id": "15",
+    "quote": "Yeeeah, McQueeeeeen! Come on, let's go eat parfaits! If you don't hurry, I'm eating the whipped cream right off yours!",
+    "japanese": "マックイーーーーン！パフェ食いに行くぞコラ！早くしねえとテメーのパフェの生クリーム頭から吸い尽くすからな！",
+    "context": "Dragging Mejiro McQueen kicking and screaming away from her strict calorie-counting diet"
+  },
+  {
+    "id": "16",
+    "quote": "President Rudolf! Behold! I have improved school regulations by drawing a giant mustache on Article 4!",
+    "japanese": "ルドルフ会長！見よ！校則第4条に立派なカイゼル髭を描き足して威厳を三倍に増幅してやったぜ！",
+    "context": "Barging into the Student Council room to show off her 'amendments'"
+  },
+  {
+    "id": "17",
+    "quote": "Hey Brian! Let's settle this right now! Thumb wrestling on top of a balancing yoga ball!",
+    "japanese": "おいブライアン！白黒つけようじゃねえか！バランスボールの上での親指相撲一本勝負だ！",
+    "context": "Challenging Narita Brian to an utterly nonsensical duel of strength"
+  },
+  {
+    "id": "18",
+    "quote": "Hey, hey, Tachyon! What happens if I chug this glowing neon flask right here?! Will my tail turn into a lightbulb?!",
+    "japanese": "おいタキオン！この光ってるフラスコの怪しい液体一気飲みしたらどうなる？！尻尾が蛍光灯みたいにピカピカ光るか？！",
+    "context": "Looming over Agnes Tachyon's chemistry bench before being shoved away"
+  },
+  {
+    "id": "19",
+    "quote": "Whoa, Creek's approaching with a baby bib and warm milk! S.T.A.R.S. evade maneuver, scatter scatter!",
+    "japanese": "ヤベエ、クリークがよだれかけとホットミルク持って突進してくるぞ！総員退避！緊急離脱ーっ！",
+    "context": "Spotting Super Creek in maximum maternal pampering mode and diving through a window"
+  },
+  {
+    "id": "20",
+    "quote": "Hey Oguri, bet you can't eat this bowl of soba in three seconds! Ready, set—HEY, YOU ACTUALLY INHALED IT?!",
+    "japanese": "オグリ！この特盛そば３秒で食えねえだろ！よーいドン…って、マジで空気ごと吸い込んだのかテメーッ？！",
+    "context": "Watching in genuine shock as Oguri Cap inhales an entire bowl of festival noodles"
+  }
+]

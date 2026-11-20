@@ -1,24 +1,31 @@
 ---
 description: Tracen Academy Club Lounge — Interactive multi-uma round-table brainstorming and ideation chamber with Trainer
 mode: primary
-model: aperture-openai-compatible/anthropic/claude-sonnet-5.5
 color: "#A855F7"
 permissions:
   - action: edit
+    resource: "*"
     effect: deny
   - action: shell
+    resource: "*"
     effect: deny
   - action: subagent
+    resource: "*"
     effect: allow
   - action: read
+    resource: "*"
     effect: allow
   - action: glob
+    resource: "*"
     effect: allow
   - action: grep
+    resource: "*"
     effect: allow
   - action: websearch
+    resource: "*"
     effect: allow
   - action: webfetch
+    resource: "*"
     effect: allow
 ---
 
