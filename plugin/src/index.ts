@@ -1,6 +1,7 @@
 import { Plugin } from "@opencode/plugin";
 import * as fs from "node:fs";
 import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 
 interface CameoCharacter {
   name: string;
@@ -40,25 +41,49 @@ function loadJsonSafe<T>(filePath: string): T | null {
   return null;
 }
 
+/**
+ * Locates the repository root containing `data/uma_cameos.json` across possible
+ * runtime locations (`plugin/dist/`, `plugin/src/`, `plugin/`, or repo root).
+ */
+function resolveRepoRoot(startDir: string): string | null {
+  const candidates = [
+    path.resolve(startDir, "../.."),
+    path.resolve(startDir, ".."),
+    path.resolve(startDir),
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(path.join(candidate, "data", "uma_cameos.json"))) {
+      return candidate;
+    }
+  }
+
+  return null;
+}
+
 export default Plugin.define({
   id: "opencode-uma-os",
   setup(ctx) {
-    // Resolve paths to repo data files
-    // When loaded from ~/.config/opencode/opencode.jsonc or repo,
-    // find data/ relative to plugin root (one level up from plugin/dist or plugin/)
-    // In ES modules, __dirname is not globally defined. Resolve safely using import.meta.url.
-    let pluginDir: string;
+    // Resolve paths to repo data files.
+    // In ES modules, __dirname is not globally defined. Use fileURLToPath so
+    // percent-encoded characters (e.g., spaces in directory names) are decoded,
+    // and resolve symlinks so symlinked entrypoints map back to the real repo.
+    let pluginDir: string | null = null;
     try {
-      pluginDir = path.dirname(new URL(import.meta.url).pathname);
+      const rawFile = fileURLToPath(import.meta.url);
+      const resolvedFile = fs.existsSync(rawFile) ? fs.realpathSync(rawFile) : rawFile;
+      pluginDir = path.dirname(resolvedFile);
     } catch {
-      pluginDir = path.resolve(".");
+      pluginDir = null;
     }
-    const repoRoot = path.resolve(pluginDir, "..");
-    const cameosPath = path.join(repoRoot, "data", "uma_cameos.json");
-    const nicknamesPath = path.join(repoRoot, "data", "uma_nicknames.json");
+    const repoRoot = pluginDir ? resolveRepoRoot(pluginDir) : null;
 
-    const cameosData = loadJsonSafe<CameoData>(cameosPath);
-    const nicknamesData = loadJsonSafe<NicknameData>(nicknamesPath);
+    const cameosData = repoRoot
+      ? loadJsonSafe<CameoData>(path.join(repoRoot, "data", "uma_cameos.json"))
+      : null;
+    const nicknamesData = repoRoot
+      ? loadJsonSafe<NicknameData>(path.join(repoRoot, "data", "uma_nicknames.json"))
+      : null;
 
     const cameoCharacters = cameosData?.characters || [];
     const aliasMap = nicknamesData?.alias_to_canonical || {};
