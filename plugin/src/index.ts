@@ -121,13 +121,18 @@ function buildExplicitInvocationMatcher(term: string): RegExp | null {
   );
 }
 
+const MAX_MATCH_CHARS = 20_000;
+
 /**
  * Strips non-prose regions (fenced code blocks, inline code spans, URLs, emails,
  * CLI package-runner invocations, and file paths/filenames) from user text for
- * matching purposes only.
+ * matching purposes only. Bounds input length and collapses long non-whitespace
+ * tokens up front to guarantee linear-time matching without ReDoS backtracking.
  */
 export function stripNonProseForMatching(text: string): string {
   return text
+    .slice(0, MAX_MATCH_CHARS)
+    .replace(/\S{200,}/g, " ")
     .replace(/```[\s\S]*?```/g, " ")
     .replace(/~~~[\s\S]*?~~~/g, " ")
     .replace(/`+[^`\n]*`+/g, " ")
@@ -323,7 +328,7 @@ export function createContextHandler(options: ContextHookOptions = {}) {
     let isSoftCameo = false;
     let softAliasMatched = false;
 
-    if (matchText) {
+    if (matchText.trim()) {
       // Tier 1: Longest hard match across cameoProfiles and alias_to_canonical
       let bestHard: HardCandidate | null = null;
       let bestSpanLength = -1;
