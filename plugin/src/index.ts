@@ -61,9 +61,19 @@ function resolveRepoRoot(startDir: string): string | null {
   return null;
 }
 
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function buildWordMatcher(term: string): RegExp | null {
+  const trimmed = term.trim();
+  if (!trimmed) return null;
+  return new RegExp(`(?<![\\p{L}\\p{N}_])${escapeRegExp(trimmed)}(?![\\p{L}\\p{N}_])`, "iu");
+}
+
 export default Plugin.define({
   id: "opencode-uma-os",
-  setup(ctx) {
+  async setup(ctx) {
     // Resolve paths to repo data files.
     // In ES modules, __dirname is not globally defined. Use fileURLToPath so
     // percent-encoded characters (e.g., spaces in directory names) are decoded,
@@ -88,11 +98,24 @@ export default Plugin.define({
     const cameoCharacters = cameosData?.characters || [];
     const aliasMap = nicknamesData?.alias_to_canonical || {};
 
-    console.log(`[opencode-uma-os] Loaded ${cameoCharacters.length} cameo profiles and ${Object.keys(aliasMap).length} nickname aliases.`);
+    const cameoMatchers = cameoCharacters.map((character) => ({
+      character,
+      matchers: [character.name, character.mononym, ...character.aliases]
+        .map(buildWordMatcher)
+        .filter((matcher): matcher is RegExp => matcher !== null),
+    }));
+
+    const aliasMatchers = Object.entries(aliasMap)
+      .filter(([alias]) => alias.trim().length >= 3)
+      .map(([alias, canonical]) => ({
+        canonical,
+        matcher: buildWordMatcher(alias),
+      }))
+      .filter((entry): entry is { canonical: string; matcher: RegExp } => entry.matcher !== null);
 
     // Hook session context before model dispatch to inject dynamic cameos or requested guest lore
-    ctx.session.hook("context", (event: any) => {
-      const agentId = event.agent?.id || event.agentID || "";
+    await ctx.session.hook("context", (event) => {
+      const agentId = typeof event.agent === "string" ? event.agent : "";
 
       // List of core solo Umamusume agents
       const soloUmaAgents = new Set(["spe-chan", "tachyon", "super-creek", "biwa", "golshi"]);
@@ -110,33 +133,36 @@ export default Plugin.define({
 
       // Check if user explicitly mentioned a guest Uma in recent message text
       const messages = event.messages || [];
-      const latestUserMsg = [...messages].reverse().find((m: any) => m.role === "user");
-      const userText = latestUserMsg?.text || (typeof latestUserMsg?.content === "string" ? latestUserMsg.content : "") || "";
+      const latestUserMsg = [...messages].reverse().find((m) => m.role === "user");
+      const userText =
+        latestUserMsg && Array.isArray(latestUserMsg.content)
+          ? latestUserMsg.content
+              .filter(
+                (part): part is Extract<typeof part, { type: "text" }> =>
+                  part.type === "text" && typeof part.text === "string",
+              )
+              .map((part) => part.text)
+              .join("\n")
+          : "";
 
       let explicitCameo: CameoCharacter | null = null;
       let matchedAlias = "";
 
       if (userText) {
-        const lower = userText.toLowerCase();
         // Check for direct matches in cameo profiles
-        for (const c of cameoCharacters) {
-          if (
-            lower.includes(c.name.toLowerCase()) ||
-            lower.includes(c.mononym.toLowerCase()) ||
-            c.aliases.some((a) => lower.includes(a.toLowerCase()))
-          ) {
-            explicitCameo = c;
-            matchedAlias = c.name;
+        for (const entry of cameoMatchers) {
+          if (entry.matchers.some((matcher) => matcher.test(userText))) {
+            explicitCameo = entry.character;
+            matchedAlias = entry.character.name;
             break;
           }
         }
 
         // Also check general alias_to_canonical index if not found in top cameos
-        if (!explicitCameo && aliasMap) {
-          for (const [alias, canonical] of Object.entries(aliasMap)) {
-            // Only check word-like boundary
-            if (alias.length >= 3 && lower.includes(alias.toLowerCase())) {
-              matchedAlias = canonical;
+        if (!explicitCameo) {
+          for (const entry of aliasMatchers) {
+            if (entry.matcher.test(userText)) {
+              matchedAlias = entry.canonical;
               break;
             }
           }
@@ -145,8 +171,15 @@ export default Plugin.define({
 
       let dropInCharacter: CameoCharacter | null = explicitCameo;
 
-      // If no explicit cameo, roll probability for random drop-in
-      if (!dropInCharacter && baseChance > 0 && Math.random() < baseChance && cameoCharacters.length > 0) {
+      // Only roll random ambient drop-ins on fresh user turns (not intermediate tool-call loops)
+      const isUserTurn = messages.at(-1)?.role === "user";
+      if (
+        !dropInCharacter &&
+        isUserTurn &&
+        baseChance > 0 &&
+        Math.random() < baseChance &&
+        cameoCharacters.length > 0
+      ) {
         const randomIdx = Math.floor(Math.random() * cameoCharacters.length);
         dropInCharacter = cameoCharacters[randomIdx];
       }
@@ -179,7 +212,5 @@ export default Plugin.define({
         }
       }
     });
-
-    console.log("[opencode-uma-os] Registered dynamic cameo context hook.");
   },
 });
