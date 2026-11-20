@@ -50,36 +50,44 @@ export interface ContextHookOptions {
 }
 
 /**
- * Single-word aliases from `uma_nicknames.json` that are ordinary English/common words
- * and would false-trigger on everyday prose unless explicitly invoked (`@Name` or
- * prefixed by "bring in", "ask", or "call").
+ * Single-word terms from `uma_cameos.json` and `uma_nicknames.json` that are
+ * ordinary English/common words and would false-trigger on everyday prose unless
+ * explicitly invoked (`@Name` or prefixed by "bring in", "ask", or "call").
  */
 const ALIAS_STOPWORDS = new Set([
   "ace",
   "acute",
   "believe",
   "bright",
+  "cafe",
   "city",
   "crown",
+  "cyborg",
+  "dia",
   "earth",
   "el",
+  "empress",
   "fine",
   "flash",
   "flower",
   "gorilla",
   "grass",
+  "groove",
   "heart",
   "king",
   "love",
   "marvelous",
+  "nature",
   "pearl",
   "reason",
+  "rice",
   "ruby",
   "silly",
   "still",
   "sweep",
   "tap",
   "ticket",
+  "turbo",
   "universe",
   "variation",
   "windy",
@@ -210,10 +218,14 @@ export function createContextHandler(options: ContextHookOptions = {}) {
     );
 
     for (const term of hardTerms) {
-      const matcher = buildWordMatcher(term);
+      const trimmed = term.trim();
+      const isStopword = ALIAS_STOPWORDS.has(trimmed.toLowerCase());
+      const matcher = isStopword
+        ? buildExplicitInvocationMatcher(trimmed)
+        : buildWordMatcher(trimmed);
       if (!matcher) continue;
       hardCandidates.push({
-        spanLength: term.trim().length,
+        spanLength: trimmed.length,
         priority: 2,
         matcher,
         character,
