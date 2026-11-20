@@ -18,12 +18,12 @@
 - **Next steps**: Implement according to Trainer's secret design when ready.
 
 ### 3. Footer Flavor Text Only While Idle
-- **Status**: Decided approach, needs research ([issue #1](https://github.com/SamPlaysKeys/Uma-Multi-Agent-Orchestration-System/issues/1))
+- **Status**: Feasible (ready to implement) ([issue #1](https://github.com/SamPlaysKeys/Uma-Multi-Agent-Orchestration-System/issues/1))
 - **Detail**: The campus flavor remark in `prompt.footer.status` makes OpenCode shorten its own status messages. Chosen fix: show flavor text only while the session status is idle (`~`), and render nothing while it is busy.
-- **Research needed**:
-  - [ ] Does the V2 TUI plugin context (`@opencode/plugin/dist/tui/context.d.ts`) expose session busy/idle state to a slot `render`?
+- **Research findings**:
+  - [x] Does the V2 TUI plugin context (`@opencode/plugin/dist/tui/context.d.ts`) expose session busy/idle state to a slot `render`? — **Yes** (verified by Agnes Tachyon): `prompt.footer.status` passes `{ sessionID, mode, showDetails }` to `render(input)`, and `context.data.session.status(sessionID)` returns `"idle" | "running"`. This confirms the idle-only footer is feasible.
   - [ ] Can a plugin replace built-in status text, or can it only append to slots? (Only matters if we later want custom in-character status messages.)
-- **Next steps**: Answer the research questions, then update `plugin/src/tui.tsx` to render flavor text only when idle.
+- **Next steps**: Update `plugin/src/tui.tsx` to render flavor text only when `context.data.session.status(input.sessionID) === "idle"` (when `input.sessionID` is present).
 
 ---
 
