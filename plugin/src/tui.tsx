@@ -1,6 +1,6 @@
 import { Plugin } from "@opencode/plugin/tui";
 import * as path from "node:path";
-import { createSignal, onCleanup } from "solid-js";
+import { createSignal } from "solid-js";
 import { FALLBACK_CAMPUS_ACTIVITIES } from "./banner.js";
 import {
   loadCampusActivities,
@@ -30,10 +30,8 @@ export default Plugin.define({
       setActivity((prev) => pickWeightedActivity(activities, prev));
     }, 25000);
 
-    onCleanup(() => clearInterval(interval));
-
     // Home screen: Keep it clean and peaceful
-    context.ui.slot({
+    const disposeHomeStatus = context.ui.slot({
       append: "home.footer.status",
       render: () => {
         return (
@@ -45,7 +43,7 @@ export default Plugin.define({
     });
 
     // In-session / prompt footer: Gentle, in-game campus remarks
-    context.ui.slot({
+    const disposePromptStatus = context.ui.slot({
       append: "prompt.footer.status",
       render: () => {
         return (
@@ -55,5 +53,11 @@ export default Plugin.define({
         );
       }
     });
+
+    return () => {
+      clearInterval(interval);
+      disposeHomeStatus();
+      disposePromptStatus();
+    };
   }
 });
