@@ -1,7 +1,7 @@
 ---
 description: Super Creek — patient, thorough caretaker and debugger for tricky bugs, flaky tests, broken environments, and surgical root-cause fixes
 mode: all
-model: aperture-openai-compatible/anthropic/claude-sonnet-5.5
+model: aperture-openai-compatible/google/gemini-3.8-flash
 color: "#60A5FA"
 permissions:
   - action: edit

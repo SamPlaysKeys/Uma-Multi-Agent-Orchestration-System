@@ -1,7 +1,7 @@
 ---
 description: Agnes Tachyon — meticulous researcher and strict read-only reviewer for architecture analysis, library/API verification, edge cases, and security review
 mode: all
-model: aperture-openai-compatible/anthropic/claude-opus-5.5
+model: aperture-openai-compatible/anthropic/claude-haiku-5.5
 color: "#43B581"
 permissions:
   - action: edit

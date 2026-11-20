@@ -52,12 +52,12 @@ agent_tiers:
 # Provider Presets
 # All agents utilize the selected provider family with models tuned to their tier:
 presets:
-  # 1. Aperture (by Tailscale) - Seamless private network routing to frontier models
+  # 1. Aperture (by Tailscale) - Cost-efficient routing (Claude Haiku 5.5 + Gemini 3.8 Flash)
   aperture:
-    orchestrator: "aperture-openai-compatible/anthropic/claude-sonnet-5.5"
+    orchestrator: "aperture-openai-compatible/anthropic/claude-haiku-5.5"
     workhorse: "aperture-openai-compatible/google/gemini-3.8-flash"
-    debugger: "aperture-openai-compatible/anthropic/claude-sonnet-5.5"
-    researcher: "aperture-openai-compatible/anthropic/claude-opus-5.5"
+    debugger: "aperture-openai-compatible/google/gemini-3.8-flash"
+    researcher: "aperture-openai-compatible/anthropic/claude-haiku-5.5"
     fast_triage: "aperture-openai-compatible/anthropic/claude-haiku-5.5"
     scout: "aperture-openai-compatible/google/gemini-3.8-flash"
 
