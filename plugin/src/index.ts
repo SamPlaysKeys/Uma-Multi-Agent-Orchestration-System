@@ -202,6 +202,7 @@ export function createContextHandler(options: ContextHookOptions = {}) {
 
   const lastCameoBySession = new Map<string, string>();
   const ambientCameoByTurn = new Map<string, CameoCharacter | null>();
+  const softRollByTurn = new Map<string, CameoCharacter | null>();
 
   const cameoByName = new Map<string, CameoCharacter>();
   for (const character of cameoCharacters) {
@@ -323,6 +324,14 @@ export function createContextHandler(options: ContextHookOptions = {}) {
 
     const matchText = userText ? stripNonProseForMatching(userText) : "";
 
+    const sessionKey =
+      typeof event.sessionID === "string" && event.sessionID.length > 0 ? event.sessionID : null;
+    const rawUserMsgId = latestUserMsg?.id;
+    const userMsgId =
+      typeof rawUserMsgId === "string" && rawUserMsgId.length > 0 ? rawUserMsgId : null;
+    const turnKey = sessionKey && userMsgId ? `${sessionKey}:${userMsgId}` : null;
+    const isUserTurn = messages.at(-1)?.role === "user";
+
     let dropInCharacter: CameoCharacter | null = null;
     let matchedAlias = "";
     let isSoftCameo = false;
@@ -372,21 +381,24 @@ export function createContextHandler(options: ContextHookOptions = {}) {
 
         if (bestSoft) {
           softAliasMatched = true;
-          if (bestSoft.chance > 0 && rng() < bestSoft.chance) {
-            dropInCharacter = bestSoft.character;
-            isSoftCameo = true;
+          if (turnKey && softRollByTurn.has(turnKey)) {
+            const cachedSoft = softRollByTurn.get(turnKey) ?? null;
+            if (cachedSoft) {
+              dropInCharacter = cachedSoft;
+              isSoftCameo = true;
+            }
+          } else {
+            if (bestSoft.chance > 0 && rng() < bestSoft.chance) {
+              dropInCharacter = bestSoft.character;
+              isSoftCameo = true;
+            }
+            if (turnKey) {
+              setBounded(softRollByTurn, turnKey, dropInCharacter);
+            }
           }
         }
       }
     }
-
-    const sessionKey =
-      typeof event.sessionID === "string" && event.sessionID.length > 0 ? event.sessionID : null;
-    const rawUserMsgId = latestUserMsg?.id;
-    const userMsgId =
-      typeof rawUserMsgId === "string" && rawUserMsgId.length > 0 ? rawUserMsgId : null;
-    const turnKey = sessionKey && userMsgId ? `${sessionKey}:${userMsgId}` : null;
-    const isUserTurn = messages.at(-1)?.role === "user";
 
     // Tier 3: Ambient random drop-in (suppressed on soft-alias match/miss and guest-request)
     if (!dropInCharacter && !matchedAlias && !softAliasMatched) {
