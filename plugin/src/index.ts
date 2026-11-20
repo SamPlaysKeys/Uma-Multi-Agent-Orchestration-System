@@ -1,6 +1,6 @@
 import { Plugin } from "@opencode/plugin";
 import * as path from "node:path";
-import { loadJsonSafe, resolveDataDir } from "./data.js";
+import { loadJsonSafe, pickWeighted, resolveDataDir } from "./data.js";
 
 interface CameoCharacter {
   name: string;
@@ -9,6 +9,7 @@ interface CameoCharacter {
   voice: string;
   mannerisms: string;
   sample_quote: string;
+  weight?: number;
 }
 
 interface CameoData {
@@ -50,6 +51,7 @@ export default Plugin.define({
 
     const cameoCharacters = cameosData?.characters || [];
     const aliasMap = nicknamesData?.alias_to_canonical || {};
+    const lastCameoBySession = new Map<string, string>();
 
     const cameoMatchers = cameoCharacters.map((character) => ({
       character,
@@ -133,8 +135,30 @@ export default Plugin.define({
         Math.random() < baseChance &&
         cameoCharacters.length > 0
       ) {
-        const randomIdx = Math.floor(Math.random() * cameoCharacters.length);
-        dropInCharacter = cameoCharacters[randomIdx];
+        const sessionKey =
+          typeof event.sessionID === "string" && event.sessionID.length > 0
+            ? event.sessionID
+            : null;
+        const lastCameoName = sessionKey ? lastCameoBySession.get(sessionKey) : undefined;
+        const candidates =
+          lastCameoName && cameoCharacters.length > 1
+            ? cameoCharacters.filter((c) => c.name !== lastCameoName)
+            : cameoCharacters;
+        const pool = candidates.length > 0 ? candidates : cameoCharacters;
+
+        dropInCharacter = pickWeighted(pool, (c) => c.weight);
+
+        if (sessionKey && dropInCharacter) {
+          if (lastCameoBySession.has(sessionKey)) {
+            lastCameoBySession.delete(sessionKey);
+          } else if (lastCameoBySession.size >= 200) {
+            const oldestKey = lastCameoBySession.keys().next().value;
+            if (oldestKey !== undefined) {
+              lastCameoBySession.delete(oldestKey);
+            }
+          }
+          lastCameoBySession.set(sessionKey, dropInCharacter.name);
+        }
       }
 
       // If a drop-in character was selected, inject a subtle <campus-cameo> instruction into system context
