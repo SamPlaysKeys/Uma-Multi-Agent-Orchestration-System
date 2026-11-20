@@ -1,22 +1,33 @@
 import { Plugin } from "@opencode/plugin/tui";
+import * as path from "node:path";
 import { createSignal, onCleanup } from "solid-js";
-import { CAMPUS_ACTIVITIES } from "./banner.js";
+import { FALLBACK_CAMPUS_ACTIVITIES } from "./banner.js";
+import {
+  loadCampusActivities,
+  pickWeightedActivity,
+  resolveDataDir,
+} from "./data.js";
 
 /**
  * OpenCode V2 TUI Plugin for UmaCode
  *
  * - Home Screen: Clean, dignified `[🐎 Tracen Squad Ready]` status badge.
- * - In-Session: Subtle, slow-refreshing in-game flavor remarks
+ * - In-Session: Subtle, slow-refreshing weighted gacha flavor remarks
+ *   loaded from `data/campus-activities.json`
  *   (e.g., "Special Week is practicing her final-stretch sprint...").
  */
 export default Plugin.define({
   id: "opencode-uma-os.tui",
   setup(context) {
-    // Slower, gentle refresh cycle (every 25 seconds) for in-session flavor
-    const [activityIndex, setActivityIndex] = createSignal(0);
+    const dataDir = resolveDataDir(import.meta.url);
+    const activitiesPath = dataDir ? path.join(dataDir, "campus-activities.json") : null;
+    const activities = loadCampusActivities(activitiesPath, FALLBACK_CAMPUS_ACTIVITIES);
+
+    // Slower, gentle refresh cycle (every 25 seconds) with weighted gacha pulls
+    const [activity, setActivity] = createSignal(pickWeightedActivity(activities));
 
     const interval = setInterval(() => {
-      setActivityIndex((prev) => (prev + 1) % CAMPUS_ACTIVITIES.length);
+      setActivity((prev) => pickWeightedActivity(activities, prev));
     }, 25000);
 
     onCleanup(() => clearInterval(interval));
@@ -37,10 +48,9 @@ export default Plugin.define({
     context.ui.slot({
       append: "prompt.footer.status",
       render: () => {
-        const text = () => CAMPUS_ACTIVITIES[activityIndex()];
         return (
           <text fg="#8B8FA8">
-            {` 🐎 ${text()} `}
+            {` 🐎 ${activity()} `}
           </text>
         );
       }
