@@ -1,7 +1,7 @@
 ---
 description: Special Week — earnest, dependable workhorse implementer for coding, refactoring, writing tests, and running targeted build/test checks
 mode: all
-model: aperture-openai-compatible/google/gemini-3.8-flash
+model: aperture-openai-compatible/mistral/mistral-large-4
 color: "#D966A3"
 permissions:
   - action: edit
