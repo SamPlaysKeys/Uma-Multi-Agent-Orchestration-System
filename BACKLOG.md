@@ -9,13 +9,14 @@
 
 - **Status**: Urgent follow-up (repo is public — do not defer)
 - **Detail**: Hardcoded local user paths and machine-specific repo paths are present in tracked files and need a dedicated scrub pass:
-  - `agents/symboli.md` (lines `34`, `88`, `94`): `/Users/sfadmin/.config/opencode/skills/model-roster/scripts/...`
-  - `skills/model-roster/SKILL.md` (lines `24`, `26`, `37`, `40`): `/Users/sfadmin/.config/opencode/skills/model-roster/scripts/...`
-  - `skills/model-roster/scripts/discover-models.py` (line `32`): `/Users/sfadmin/.lmstudio/bin/lms`
-  - `agents/tracen-lounge.md` (lines `80`, `83`): `~/Dev/Personal Projects/Uma-Multi-Agent-Orchestration-System/...`
+  - `agents/symboli.md` (the `shell` permission glob and the two command examples in the discovery/triage sections): `/Users/<user>/.config/opencode/skills/model-roster/scripts/...`
+  - `skills/model-roster/SKILL.md` (the `discover-models.py` and `ask-biwa.py` invocation examples): `/Users/<user>/.config/opencode/skills/model-roster/scripts/...`
+  - `skills/model-roster/scripts/discover-models.py` (the fallback `lms` CLI binary path): `/Users/<user>/.lmstudio/bin/lms`
+  - `agents/tracen-lounge.md` (the `uma_nicknames.json` lookup paths in the guest-cameo / nickname-resolution instructions): `~/Dev/Personal Projects/Uma-Multi-Agent-Orchestration-System/...`
   - *(Audit note: checked tracked repo for `ts.net` hostnames and GCP project IDs — none found in tracked files; only present in local untracked `~/.config/opencode/opencode.jsonc`.)*
 - **Remediation plan**:
-  - Replace hardcoded user/repo paths with `~/`, environment variables (`$HOME` / `Path.home()`), or repo-relative paths (note: OpenCode `shell` permission strings do not expand `~` or `$HOME`, so check `agents/symboli.md:34` carefully when scoping the glob).
+  - Replace hardcoded user/repo paths with `~/`, environment variables (`$HOME` / `Path.home()`), or repo-relative paths (note: OpenCode `shell` permission strings do not expand `~` or `$HOME`, so check the `python3` shell permission glob in `agents/symboli.md` carefully when scoping the glob).
+  - Update the stale `gemini-4-carbon` mentions for Tachyon in `commands/help-uma-os.md`, `skills/uma-help/SKILL.md`, and the `tachyon` row of `skills/model-roster/SKILL.md` in the same pass (the `symboli` and `super-creek` fallback entries in `agents/symboli.md` and `skills/model-roster/SKILL.md` need a separate decision).
   - **History decision needed**: Since these paths already exist in git history on `origin`, Trainer / Symboli Rudolf need to decide whether git history rewriting is wanted (usually unnecessary for non-secret local paths, but needs an explicit decision).
   - Use the `scrub` skill and `betterleaks` to verify the cleanup pass.
 
@@ -60,8 +61,18 @@
     - [ ] Review `plugin/package.json` runtime dependencies and exports against the `@opencode/plugin` packaging guidelines. `@opencode/plugin` is injected by the OpenCode host, so it should not be bundled as a runtime dependency.
 - [ ] **Slash-joined names over-stripped in `stripNonProseForMatching` (S3)**: The path regex `[\w.-]+(?:\/[\w.@+-]+)+` strips slash-separated Uma names in prose (e.g., `'Teio/Urara/Kitasan'` strips to blank, `'Oguri Cap/Rice Shower'` becomes `'Oguri   Shower'`). Fix idea: require a leading `./`, `~/`, or `/`, or require at least 2 path-like segments/extensions before stripping.
 - [ ] **Automated plugin test suite (S4)**: Promote the Node/Bun smoke checks into `plugin/test/`, add a `"test"` script to `plugin/package.json`, and include an assertion covering `ALIAS_STOPWORDS` coverage for single-word cameo terms.
-- [ ] **Tachyon runner containment (accepted risk)**: In `agents/tachyon.md`, `node`, `bun run`/`bun test`, `npm run`/`npm test`, `tsc`, `npx tsc`, and `python3` can still write files or make network calls from within executed scripts (`edit: deny` only blocks editor tools). Read-only behavior for these runners is currently an accepted-risk convention; real containment would require an OS sandbox or disposable worktree.
+- [ ] **Tachyon runner containment (accepted risk)**: In `agents/tachyon.md`, `node`, `bun run`/`bun test`, `npm run`/`npm test`, `tsc`, `npx tsc`, and `python3` (including `bun run -e`/`-p` and `node -e` arbitrary code execution) plus shell redirection can still write files or make network calls from within executed commands (`edit: deny` only blocks editor tools). Read-only behavior for these runners is currently an accepted-risk convention; real containment would require an OS sandbox or disposable worktree.
 - [ ] **Flexible per-agent model assignment**: Trainer wants model assignment to be more flexible later, with an easy way to swap a single agent's model or tier (e.g., a cost-aware tier such as `researcher`: standard vs. premium, per-agent override without editing presets, possibly a CLI flag on `scripts/configure.py`), and revisit `gemini-4-carbon` for Tachyon if its cost/benefit changes.
+- [ ] **Shell redirection gap in `agents/tachyon.md` (WARNING)**: `git log -1 --oneline > <file>` was allowed by the permission layer and wrote a file; any allowed command plus `>` or `>>` can write. Fix idea: add late `deny` rules for `* > *`, `* >> *`, `*>*`, `*>>*` after the `allow`s (last match wins), with `allow`s for `*2>&1*` after them.
+- [ ] **Cameo invocation lost after long pasted text (WARNING)**: `stripNonProseForMatching` keeps only the head (`slice(0, 20_000)`), so a long pasted log followed by `'bring in Rice Shower'` is silently ignored (confirmed at 20,002 chars; ~19k works). Fix idea: match on head plus tail (`slice(0, 10_000) + ' ' + slice(-10_000)`) or the tail alone.
+- [ ] **`ask` / `call` weaken the stop-list (WARNING — Decision pending)**: In a solo session, `'ask Brian to review the PR'`, `'call Jordan about the invoice'`, `'ask Ryan'`, and `'ask Mac'` still fire a cameo. Options: (a) for stop-listed terms accept only `@Name` and `'bring in Name'` (stricter), or (b) keep `ask`/`call` and record the trade-off. Needs Trainer's decision.
+- [ ] **Tachyon permission polish (minor)**:
+  - `find` guards need a path-less form because `find * -fprint*` requires a space first, so `find -fprint <file>`, `find -exec ...`, `-execdir`, `-ok`, `-fprintf`, and `-fls` pass the permission layer (inert on macOS BSD `find`, live with GNU `find`); use space-less patterns such as `find *-exec*` and `find *-fprint*`.
+  - `rg --pre <cmd>` runs arbitrary commands; add `deny` for `rg * --pre*`.
+  - `git * --out*` (abbreviation of `--output`) should also be denied in case another git version accepts it.
+  - Note: `bun run -e`/`-p` and `node -e` run arbitrary code (also logged under `Tachyon runner containment (accepted risk)`).
+- [ ] **Stop-list round 2 (dev-relevant words)**: Add `chrono`, `helios`, `kraft`, `sirius`, `creek`, `scarlet`, `laurel`, and `transcend` to `ALIAS_STOPWORDS` (all fire bare in a solo session today). Lower-priority dictionary-scan hits to judge case by case: `palmer`, `fuji`, `donna`, `dura`, `mambo`, `maru`. Note: stop-list entry `el` is dead (nickname keys under 3 characters are skipped) and harmless; bare `Tachyon` in a solo `tachyon` session also injects an `'Agnes Tachyon'` `<guest-request>` (minor, pre-existing — consider suppressing self-mentions for the active agent).
+- [ ] **Fallback turn key for messages without an id (SUGGESTION)**: In `plugin/src/index.ts` near the turn-key construction, when a user message lacks an `id` there is no `turnKey`, so the soft-alias roll re-rolls on every call and a cameo can flicker mid-tool-loop. Fix idea: build a fallback key from the session ID, message count, and a hash of the user text.
 - [ ] *(Idea slot — ready for Trainer's notes)*
 
 ---
@@ -79,3 +90,4 @@
 - [x] **Cameo Mononym Stop-List Gating**: Extended the explicit-invocation guard (`@Name`, `bring in`/`ask`/`call`) to ambiguous single-word cameo mononyms and aliases (`rice`, `cafe`, `nature`, `turbo`, `groove`, `dia`, `cyborg`, `empress`) while keeping full multi-word names active.
 - [x] **Plugin Hardening & Tachyon Review Guards**: Bounded `stripNonProseForMatching` against ReDoS (`MAX_MATCH_CHARS` + `\S{200,}` collapse), memoized soft-alias rolls once per turn, expanded `ALIAS_STOPWORDS` for common names/dev terms, and hardened `agents/tachyon.md` `git branch`, `--output`, `bun`, and `find` permission guards.
 - [x] **Tachyon researcher preset pinned to Sonnet 5.5**: Updated `uma-config.yaml` `presets.google-vertex.researcher` (and `README.md`) from `google-vertex/gemini-4-carbon` to `google-vertex/claude-sonnet-5-5@default`.
+- [x] **Tachyon Final Re-Review (GO)**: Re-review of `67854d8..a9a4f0a` returned GO with no critical findings; verified ReDoS fix, once-per-turn soft roll, stop-list (0 of 51 words leak bare), and live permission-layer denials; branch pushed at `1050a80`. Remaining findings are logged above.
