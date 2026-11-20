@@ -53,3 +53,4 @@
 - [x] **TUI Status & Campus Flavor Ticker**: Clean `🐎 Tracen Squad Ready` badge on home screen and gentle 25-second in-game training remarks during active sessions.
 - [x] **Campus Activities Data File & Weighted Gacha Pulls**: Extracted flavor lines into pool-ready `data/campus-activities.json`, shared hardened data resolution in `plugin/src/data.ts`, and added non-repeating weighted pulls with defensive validation and `banner.ts` fallback.
 - [x] **Canonical Datasets**: 129 Umamusume with 299 indexed aliases (`data/uma_nicknames.json`), 15 cameo dossiers (`data/uma_cameos.json`), and 20 Gold Ship quotes (`data/goldship-quotes.json`).
+- [x] **Cameo Roster Expansion & Drop-In Weights**: Wiki-verified the original cameo dossiers, grew `data/uma_cameos.json` from 15 to 25 characters (Digitan, Bakushin, Kitasan, Dia, Finemo, Eishin, Curren, Bourbon, Seiun Sky, Air Groove), and added per-character `weight` values (10/6/3) for gacha-style weighted drop-ins.
