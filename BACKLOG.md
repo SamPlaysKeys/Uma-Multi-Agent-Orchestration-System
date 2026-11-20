@@ -35,6 +35,12 @@
   - Needs a dedicated `NIGHT_OWL_ACTIVITIES` pool in `plugin/src/banner.ts` and a local-time check in `plugin/src/tui.tsx`.
   - **Interacts with item 3**: that item hides flavor text while the session is busy, but this idea wants night remarks while work is happening. Decide whether Night Owl text is exempt from the idle-only rule, or whether it ties into the custom status message replacement. That depends on the item 3 research.
   - Open details: exact cutoff (9PM start, and when does it end? e.g. 5AM) and whether the time check should use the system timezone.
+- [ ] **npm plugin packaging (`prepack` data copy)**: Only needed if `opencode-uma-os` is ever published to npm (`opencode plugin add opencode-uma-os`).
+  - **Why this is deferred**: Today the plugin resolves `data/*.json` relative to the repository root (`../../data`). This keeps a single source of truth for repo-local / `./install.sh` installs, alongside `tracen-lounge.md` and the `Uma_nicknames.md` CI workflow. Nothing is broken, so no action is needed until we publish.
+  - **What's needed for an npm release**:
+    - [ ] Add a `prepack` / build copy step that copies `../data/uma_cameos.json` and `../data/uma_nicknames.json` (and `../data/goldship-quotes.json` if needed) into a gitignored `plugin/data/` directory. Include that directory in the `"files"` list of `plugin/package.json`.
+    - [ ] Update the root/data resolution in `plugin/src/index.ts` to check `./data` (packaged inside `plugin/`) first, then fall back to `../../data` (repo root). Repo-local installs keep working unchanged.
+    - [ ] Review `plugin/package.json` runtime dependencies and exports against the `@opencode/plugin` packaging guidelines. `@opencode/plugin` is injected by the OpenCode host, so it should not be bundled as a runtime dependency.
 - [ ] *(Idea slot — ready for Trainer's notes)*
 
 ---
