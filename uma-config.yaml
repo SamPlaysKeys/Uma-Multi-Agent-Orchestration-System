@@ -64,14 +64,14 @@ presets:
     fast_triage: "aperture-openai-compatible/anthropic/claude-haiku-5.5"
     scout: "aperture-openai-compatible/deepseek/deepseek-v4.1-flash"
 
-  # 2. Google Vertex (The original high-performance hybrid cloud + local setup)
+  # 2. Google Vertex (High-performance hybrid cloud setup)
   google-vertex:
     orchestrator: "google-vertex/claude-sonnet-5-5@default"
     workhorse: "google-vertex/gemini-4-hydrogen"
     debugger: "google-vertex/claude-sonnet-5-5@default"
     researcher: "google-vertex/gemini-4-carbon"
     fast_triage: "google-vertex/gemini-3.5-flash-lite"
-    scout: "lmstudio/google/gemma-4-e4b"
+    scout: "google-vertex/gemini-3.5-flash-lite"
 
   # 2. Anthropic Direct (Claude 3.7 / 3.5 stack)
   anthropic:

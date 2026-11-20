@@ -1,5 +1,5 @@
 ---
-description: Biwa Hayahide — analytical strategist and fast triage advisor for routing, risk checks, and go/no-go decisions (lightweight cloud fallback when no decision model server is active)
+description: Biwa Hayahide — analytical strategist and fast triage advisor for routing, risk checks, and go/no-go decisions (powered by local decision engine or cloud fallback)
 mode: all
 model: aperture-openai-compatible/anthropic/claude-haiku-5.5
 color: "#8B8FA8"
