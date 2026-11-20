@@ -41,10 +41,6 @@
     - [ ] Add a `prepack` / build copy step that copies `../data/uma_cameos.json`, `../data/uma_nicknames.json`, and `../data/campus-activities.json` (and `../data/goldship-quotes.json` if needed) into a gitignored `plugin/data/` directory. Include that directory in the `"files"` list of `plugin/package.json`.
     - [ ] Update the root/data resolution in `plugin/src/data.ts` to check `./data` (packaged inside `plugin/`) first, then fall back to `../../data` (repo root). Repo-local installs keep working unchanged.
     - [ ] Review `plugin/package.json` runtime dependencies and exports against the `@opencode/plugin` packaging guidelines. `@opencode/plugin` is injected by the OpenCode host, so it should not be bundled as a runtime dependency.
-- [ ] **Per-alias `chance` field (`soft_aliases`) tuning**:
-  - `soft_aliases` support already exists in `plugin/src/index.ts` as a dormant engine (`[{ "text": ..., "chance": 0..1 }]`), injecting a confused "wandered in by mistake" drop-in on a hit.
-  - Original use case was Digitan on `"Digital"` at `0.05` (5%), dropped for now (bare `"digital"` is guarded in `ALIAS_STOPWORDS`).
-  - Needs a data design and tuning pass before it is used. Open questions: which ambiguous words (`Rice`, `Cafe`, `Nature`, `Turbo`, `Groove`, `Dia`) should get soft chances versus capitalized-only matching, and whether the chance should be per-alias or per-character.
 - [ ] *(Idea slot — ready for Trainer's notes)*
 
 ---
