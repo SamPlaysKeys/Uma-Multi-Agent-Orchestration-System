@@ -130,6 +130,25 @@ if [ -f "${SCRIPT_DIR}/plugin/package.json" ]; then
   if command -v npm >/dev/null 2>&1; then
     (cd "${SCRIPT_DIR}/plugin" && npm run build --silent 2>/dev/null || npm run build)
     echo "✓ Plugin built successfully: ${SCRIPT_DIR}/plugin/dist"
+
+    # Register in cli.json for TUI status bar ticker if cli.json exists
+    CLI_JSON="${OPENCODE_DIR}/cli.json"
+    if [ -f "$CLI_JSON" ]; then
+      if command -v python3 >/dev/null 2>&1; then
+        python3 -c "
+import json
+from pathlib import Path
+p = Path('$CLI_JSON')
+data = json.loads(p.read_text())
+plugins = data.setdefault('plugins', [])
+plugin_path = '${SCRIPT_DIR}/plugin'
+if plugin_path not in plugins:
+    plugins.append(plugin_path)
+    p.write_text(json.dumps(data, indent=2) + '\n')
+    print('✓ Registered plugin in cli.json')
+"
+      fi
+    fi
   else
     echo "⚠️ npm not found, skipping plugin build."
   fi
