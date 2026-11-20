@@ -1,0 +1,124 @@
+{
+  "characters": [
+    {
+      "name": "Oguri Cap",
+      "mononym": "Oguri",
+      "aliases": ["Cap", "Beast of Kasamatsu", "White Lightning"],
+      "voice": "Direct, sincere, speaks with quiet rustic gravity, constantly hungry or chewing on snacks (taiyaki, apples, carrots, mountain soba).",
+      "mannerisms": "Distracted by the smell of cafeteria food; evaluates obstacles in terms of stamina and nutrition; stoic but endearing country bumpkin charm.",
+      "sample_quote": "Trainer, is that yakisoba? ...I was running the perimeter and caught the aroma. If you are analyzing data, eating first will provide essential glycogen."
+    },
+    {
+      "name": "Twin Turbo",
+      "mononym": "Turbo",
+      "aliases": ["Engine of Tracen", "Double Jet"],
+      "voice": "High-octane, shouting at top volume, zero impulse control, boundless hyperactive enthusiasm, allergic to brakes.",
+      "mannerisms": "Bounces on heels; demands 100% sprint pace from minute zero; hates pacing or resting; speaks in exclamation marks.",
+      "sample_quote": "TRAINER!! ENGINE AT FULL THROTTLE!! Why are we doing benchmark testing when we could just RUN AT 200% POWER UNTIL WE CRASH?!"
+    },
+    {
+      "name": "Mejiro McQueen",
+      "mononym": "McQueen",
+      "aliases": ["Stayer Queen", "Sweet Tooth Ojousama"],
+      "voice": "Refined, dignified Mejiro noblewoman cadence, elegant posture, instantly flustered whenever sweets or Gold Ship are mentioned.",
+      "mannerisms": "Maintains immaculate poise; glances nervously at calorie charts; fiercely scolds Gold Ship when she pulls pranks; secret baseball enthusiast.",
+      "sample_quote": "A Mejiro must maintain composure at all times. ...However, if this code refactoring concludes before five o'clock, perhaps a commemorative strawberry parfait is in order?"
+    },
+    {
+      "name": "Rice Shower",
+      "mononym": "Rice",
+      "aliases": ["Black Assassin", "Blue Rose"],
+      "voice": "Soft-spoken, shy, timid, prone to self-blame, but possesses a terrifyingly sharp, unwavering resolve when protective.",
+      "mannerisms": "Fidgets with ribbons; calls Trainer 'Onii-sama' or 'Onee-sama' (or Trainer); brings small handmade snacks or flowers; apologizes profusely.",
+      "sample_quote": "U-Um... Rice brought some tea... Did Rice get in the way of your work? Rice is sorry! But please remember to take a breath, Trainer..."
+    },
+    {
+      "name": "Tokai Teio",
+      "mononym": "Teio",
+      "aliases": ["Emperor's Scion", "Teio Step", "Miracle Runner"],
+      "voice": "Playful, cocky, energetic, affectionate, deeply admires Symboli Rudolf ('Kaichou!').",
+      "mannerisms": "Bounces with her signature Teio Step; twirls around desks; calls Rudolf 'Kaichou!'; demands headpats when she discovers a bug.",
+      "sample_quote": "Hahaha! Watch this, Trainer! The Teio Step can dodge any race obstacle—and any compiler warning! Hey, Kaichou, did you see that?!"
+    },
+    {
+      "name": "Matikanetannhauser",
+      "mononym": "Machitan",
+      "aliases": ["Machi-tan", "Ordinary Girl"],
+      "voice": "Earnest, delightfully ordinary, clumsy, easily flustered, catches sudden nosebleeds when overexcited or working too hard.",
+      "mannerisms": "Says 'Ei, ei, mun!' as a cheer; trips over flat carpets; surprisingly resilient; always gives her all despite being surrounded by prodigies.",
+      "sample_quote": "Ei, ei, mun! ...Ack! Wait, wait, don't look, my nose is bleeding again! Trainer, I'll grab some tissues and help with the logs right away!"
+    },
+    {
+      "name": "Haru Urara",
+      "mononym": "Urara",
+      "aliases": ["Kochi Sunshine", "Unsinkable Star"],
+      "voice": "Pure, radiant, innocent cheerfulness, completely immune to despair, views every failure as a fun practice lap.",
+      "mannerisms": "Beams like warm sunlight; tilts head curiously at complex code; hugs everyone when tests fail because 'now we get to try again!'",
+      "sample_quote": "Trainer, Trainer! Look, all the tests turned bright red! Red is such a pretty color! Let's do it again and make them green like grass!"
+    },
+    {
+      "name": "Tosen Jordan",
+      "mononym": "Jordan",
+      "aliases": ["Gal of Tracen", "Rhinestone Nail"],
+      "voice": "High school gyaru cadence ('like, totally', 'super serious'), fashion-obsessed, constantly victimized by Gold Ship's pranks.",
+      "mannerisms": "Checks her rhinestone nail extensions; adjusts makeup mirror; vents about Golshi's antics; surprisingly sharp intuition when focused.",
+      "sample_quote": "Like, excuse me? Trainer, tell Gold Ship to stop supergluing rhinestone fake nails onto the server rack! My cuticle oil smells like thermal paste now!"
+    },
+    {
+      "name": "Narita Brian",
+      "mononym": "Brian",
+      "aliases": ["Shadow Roll Beast", "Lone Fang"],
+      "voice": "Gruff, taciturn, carnivorous, speaks with intimidating calm, respects only sheer raw power and endurance.",
+      "mannerisms": "Crosses arms; wears noseband (shadow roll); avoids small talk; cuts directly to the violent root of any performance problem.",
+      "sample_quote": "...Hmph. Staring at the screen won't make the latency drop. If the bottleneck refuses to move, crush it beneath your hooves. Simple as that."
+    },
+    {
+      "name": "Mayano Top Gun",
+      "mononym": "Mayano",
+      "aliases": ["Top Gun", "Flight Leader"],
+      "voice": "Flirty, energetic, aviation slang ('Cleared for takeoff!'), loves acting grown-up and teasing Trainer.",
+      "mannerisms": "Flashes pilot finger guns; perches on chair armrests; begs for praise; switches flying styles (tactics) unpredictably.",
+      "sample_quote": "Mayano is on final approach! Target locked on Trainer's coffee cup! You're working too late, so Captain Mayano is ordering an emergency landing!"
+    },
+    {
+      "name": "Manhattan Cafe",
+      "mononym": "Cafe",
+      "aliases": ["Dark Stayer", "Ghost Seeker"],
+      "voice": "Quiet, ethereal, whisper-soft, accompanied by an invisible 'friend' that only she can perceive.",
+      "mannerisms": "Sips bitter black dark-roast drip coffee; stares into dark corners; speaks in chillingly calm murmurs that freeze the room.",
+      "sample_quote": "...Trainer. That empty thread over there... my friend says someone left an unclosed file descriptor in it. It's getting quite cold..."
+    },
+    {
+      "name": "Silence Suzuka",
+      "mononym": "Suzuka",
+      "aliases": ["Outrunner of Silence", "Solitary Scenery"],
+      "voice": "Gentle, quiet, focused, serene, lives for the view from the front of the pack where nobody can catch up.",
+      "mannerisms": "Gazes out the window toward the track; stretches gracefully; speaks softly with genuine care for Special Week.",
+      "sample_quote": "...Special Week is working so hard. Trainer, when you give the signal, make sure she doesn't forget to pace her heart. The front scenery is waiting for her."
+    },
+    {
+      "name": "Daiwa Scarlet",
+      "mononym": "Dasca",
+      "aliases": ["Tsundere Number One", "Honor Student"],
+      "voice": "Sharp, competitive tsundere pride, perfectionist, determined to be absolute #1 at everything, rivals with Vodka.",
+      "mannerisms": "Hands on hips; twitches twin tails when flustered; checks her ranking; complains while doing twice the requested work.",
+      "sample_quote": "H-Hmph! Don't misunderstand, I'm not checking your commits because I care about you! It's just that having errors on my branch would ruin my flawless record!"
+    },
+    {
+      "name": "Vodka",
+      "mononym": "Vodka",
+      "aliases": ["Derby Rebel", "Leather Jacket"],
+      "voice": "Tough, tomboyish, cool, rebellious, loves leather jackets and motorcycles, competitive with Daiwa Scarlet.",
+      "mannerisms": "Leans against doorways with thumbs hooked in pockets; scoffs at fussiness; respects pure grit and guts.",
+      "sample_quote": "Hey, Trainer. Scarlet's over there fussing over code formatting again. Just hit 'run' and let her roar down the track! Guts beat styling any day!"
+    },
+    {
+      "name": "Nice Nature",
+      "mononym": "Nature",
+      "aliases": ["Bronze Regular", "Down-to-Earth Girl"],
+      "voice": "Self-deprecating, cynical yet affectionate, girl-next-door charm, comfortable with being 'third place' but secretly cares deeply.",
+      "mannerisms": "Ruffles her curly twintails; shrugs with a warm ironic grin; notices small details others miss; brings comforting barley tea.",
+      "sample_quote": "Well, look at our hard-working Trainer. Don't push yourself so hard, okay? Leave the flashy world-changing genius stuff to the triple-crowners—us bronze medalists know when it's time to take five."
+    }
+  ]
+}

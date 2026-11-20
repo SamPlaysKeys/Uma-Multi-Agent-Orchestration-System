@@ -1,0 +1,32 @@
+{
+  "name": "opencode-uma-os",
+  "version": "1.0.0",
+  "description": "OpenCode V2 plugin for Umamusume Multi-Agent Orchestration System with dynamic cameo drops and campus context injection",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "umamusume",
+    "multi-agent",
+    "orchestrator"
+  ],
+  "author": "SamPlaysKeys",
+  "license": "MIT",
+  "dependencies": {
+    "@opencode/plugin": "^2.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}

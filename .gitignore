@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .DS_Store
 .local/
+node_modules/
+dist/
+plugin/node_modules/

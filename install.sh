@@ -123,6 +123,18 @@ if [ -d "${SCRIPT_DIR}/commands" ]; then
   done
 fi
 
+# Build plugin if plugin/package.json exists
+if [ -f "${SCRIPT_DIR}/plugin/package.json" ]; then
+  echo ""
+  echo "--- Building opencode-uma-os Plugin ---"
+  if command -v npm >/dev/null 2>&1; then
+    (cd "${SCRIPT_DIR}/plugin" && npm run build --silent 2>/dev/null || npm run build)
+    echo "✓ Plugin built successfully: ${SCRIPT_DIR}/plugin/dist"
+  else
+    echo "⚠️ npm not found, skipping plugin build."
+  fi
+fi
+
 echo ""
 echo "✨ Installation complete in [${MODE}] mode!"
 echo "Use '/help-uma-os' to see squad capabilities, '/agent symboli' for autonomous dispatch, or '/agent tracen-lounge' for clubroom brainstorming!"
