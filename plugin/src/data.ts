@@ -140,6 +140,42 @@ export function loadCampusActivities(
 }
 
 /**
+ * Performs a weighted random selection from `items` using `getWeight`.
+ * Missing, non-finite, or non-positive weights are treated as 1.
+ */
+export function pickWeighted<T>(
+  items: readonly T[],
+  getWeight: (item: T) => number | undefined,
+  rng: () => number = Math.random,
+): T | null {
+  if (items.length === 0) {
+    return null;
+  }
+
+  let totalWeight = 0;
+  const weights = items.map((item) => {
+    const raw = getWeight(item);
+    const weight = typeof raw === "number" && Number.isFinite(raw) && raw > 0 ? raw : 1;
+    totalWeight += weight;
+    return weight;
+  });
+
+  if (!Number.isFinite(totalWeight) || totalWeight <= 0) {
+    return items[0];
+  }
+
+  let threshold = rng() * totalWeight;
+  for (let i = 0; i < items.length; i++) {
+    threshold -= weights[i];
+    if (threshold < 0) {
+      return items[i];
+    }
+  }
+
+  return items[items.length - 1];
+}
+
+/**
  * Performs a weighted random pull from `pool`, avoiding immediate repetition
  * of `lastText` whenever another option exists.
  */
@@ -158,19 +194,5 @@ export function pickWeightedActivity(
       : pool;
 
   const activePool = candidates.length > 0 ? candidates : pool;
-  const totalWeight = activePool.reduce((sum, item) => sum + item.weight, 0);
-
-  if (!Number.isFinite(totalWeight) || totalWeight <= 0) {
-    return activePool[0].text;
-  }
-
-  let threshold = rng() * totalWeight;
-  for (const item of activePool) {
-    threshold -= item.weight;
-    if (threshold < 0) {
-      return item.text;
-    }
-  }
-
-  return activePool[activePool.length - 1].text;
+  return pickWeighted(activePool, (item) => item.weight, rng)?.text ?? "";
 }
