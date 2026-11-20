@@ -17,6 +17,14 @@
 - **Detail**: 20 rich, canonical Gold Ship quotes and banter lines are curated in `data/goldship-quotes.json`. Kept completely separate from ambient dialogue for Trainer's special plan.
 - **Next steps**: Implement according to Trainer's secret design when ready.
 
+### 3. Footer Flavor Text Only While Idle
+- **Status**: Decided approach, needs research ([issue #1](https://github.com/SamPlaysKeys/Uma-Multi-Agent-Orchestration-System/issues/1))
+- **Detail**: The campus flavor remark in `prompt.footer.status` makes OpenCode shorten its own status messages. Chosen fix: show flavor text only while the session status is idle (`~`), and render nothing while it is busy.
+- **Research needed**:
+  - [ ] Does the V2 TUI plugin context (`@opencode/plugin/dist/tui/context.d.ts`) expose session busy/idle state to a slot `render`?
+  - [ ] Can a plugin replace built-in status text, or can it only append to slots? (Only matters if we later want custom in-character status messages.)
+- **Next steps**: Answer the research questions, then update `plugin/src/tui.tsx` to render flavor text only when idle.
+
 ---
 
 ## 💡 Upcoming Ideas & Brainstorms
