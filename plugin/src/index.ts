@@ -61,6 +61,7 @@ const ALIAS_STOPWORDS = new Set([
   "bright",
   "city",
   "crown",
+  "digital",
   "earth",
   "el",
   "fine",
