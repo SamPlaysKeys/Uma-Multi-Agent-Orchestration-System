@@ -31,6 +31,10 @@
 
 *Trainer, whenever you have an idea or inspiration, add it here or mention it to me and I'll make sure it's written down neatly!*
 
+- [ ] **"Night Owl" flavor text**: When work is being done and local time is after 9PM, swap the campus flavor remarks for late-night ones (e.g. Super Creek insisting on warm milk and bedtime, Gold Ship still roaming the dark campus, Rudolf burning the midnight oil on council paperwork).
+  - Needs a dedicated `NIGHT_OWL_ACTIVITIES` pool in `plugin/src/banner.ts` and a local-time check in `plugin/src/tui.tsx`.
+  - **Interacts with item 3**: that item hides flavor text while the session is busy, but this idea wants night remarks while work is happening. Decide whether Night Owl text is exempt from the idle-only rule, or whether it ties into the custom status message replacement. That depends on the item 3 research.
+  - Open details: exact cutoff (9PM start, and when does it end? e.g. 5AM) and whether the time check should use the system timezone.
 - [ ] *(Idea slot — ready for Trainer's notes)*
 
 ---
