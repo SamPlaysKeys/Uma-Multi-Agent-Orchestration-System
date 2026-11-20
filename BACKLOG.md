@@ -32,14 +32,14 @@
 *Trainer, whenever you have an idea or inspiration, add it here or mention it to me and I'll make sure it's written down neatly!*
 
 - [ ] **"Night Owl" flavor text**: When work is being done and local time is after 9PM, swap the campus flavor remarks for late-night ones (e.g. Super Creek insisting on warm milk and bedtime, Gold Ship still roaming the dark campus, Rudolf burning the midnight oil on council paperwork).
-  - Needs a dedicated `NIGHT_OWL_ACTIVITIES` pool in `plugin/src/banner.ts` and a local-time check in `plugin/src/tui.tsx`.
+  - **Pool-ready schema**: `data/campus-activities.json` already uses a `{ "pools": { "default": [...] } }` schema, so implementing Night Owl only requires adding a `night_owl` pool in `data/campus-activities.json` and a local-time check in `plugin/src/tui.tsx`.
   - **Interacts with item 3**: that item hides flavor text while the session is busy, but this idea wants night remarks while work is happening. Decide whether Night Owl text is exempt from the idle-only rule, or whether it ties into the custom status message replacement. That depends on the item 3 research.
   - Open details: exact cutoff (9PM start, and when does it end? e.g. 5AM) and whether the time check should use the system timezone.
 - [ ] **npm plugin packaging (`prepack` data copy)**: Only needed if `opencode-uma-os` is ever published to npm (`opencode plugin add opencode-uma-os`).
   - **Why this is deferred**: Today the plugin resolves `data/*.json` relative to the repository root (`../../data`). This keeps a single source of truth for repo-local / `./install.sh` installs, alongside `tracen-lounge.md` and the `Uma_nicknames.md` CI workflow. Nothing is broken, so no action is needed until we publish.
   - **What's needed for an npm release**:
-    - [ ] Add a `prepack` / build copy step that copies `../data/uma_cameos.json` and `../data/uma_nicknames.json` (and `../data/goldship-quotes.json` if needed) into a gitignored `plugin/data/` directory. Include that directory in the `"files"` list of `plugin/package.json`.
-    - [ ] Update the root/data resolution in `plugin/src/index.ts` to check `./data` (packaged inside `plugin/`) first, then fall back to `../../data` (repo root). Repo-local installs keep working unchanged.
+    - [ ] Add a `prepack` / build copy step that copies `../data/uma_cameos.json`, `../data/uma_nicknames.json`, and `../data/campus-activities.json` (and `../data/goldship-quotes.json` if needed) into a gitignored `plugin/data/` directory. Include that directory in the `"files"` list of `plugin/package.json`.
+    - [ ] Update the root/data resolution in `plugin/src/data.ts` to check `./data` (packaged inside `plugin/`) first, then fall back to `../../data` (repo root). Repo-local installs keep working unchanged.
     - [ ] Review `plugin/package.json` runtime dependencies and exports against the `@opencode/plugin` packaging guidelines. `@opencode/plugin` is injected by the OpenCode host, so it should not be bundled as a runtime dependency.
 - [ ] *(Idea slot — ready for Trainer's notes)*
 
@@ -51,4 +51,5 @@
 - [x] **Local LM Studio Decision Engine Integration**: Integrated `/v1/decisions` on `http://127.0.0.1:1234` with auto-detected `d1-3b` model and graceful cloud fallback (`skills/model-roster/scripts/ask-biwa.py`).
 - [x] **`opencode-uma-os` OpenCode V2 Plugin**: Built TypeScript plugin hooking into `ctx.session.hook("context")` for dynamic campus cameos, explicit guest summoning, and 1-on-1 pairing focus protection.
 - [x] **TUI Status & Campus Flavor Ticker**: Clean `🐎 Tracen Squad Ready` badge on home screen and gentle 25-second in-game training remarks during active sessions.
+- [x] **Campus Activities Data File & Weighted Gacha Pulls**: Extracted flavor lines into pool-ready `data/campus-activities.json`, shared hardened data resolution in `plugin/src/data.ts`, and added non-repeating weighted pulls with defensive validation and `banner.ts` fallback.
 - [x] **Canonical Datasets**: 129 Umamusume with 299 indexed aliases (`data/uma_nicknames.json`), 15 cameo dossiers (`data/uma_cameos.json`), and 20 Gold Ship quotes (`data/goldship-quotes.json`).
