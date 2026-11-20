@@ -1,0 +1,30 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "//": "UMA OS Model Configuration Overrides for OpenCode V2",
+  "//_instructions": "Copy or merge this 'agents' block into your ~/.config/opencode/opencode.jsonc. Values here override the model frontmatter in agents/*.md without modifying the Git repository.",
+
+  "agents": {
+    "//_aperture_preset": "--- Aperture (Tailscale) Preset ---",
+    "symboli": {
+      "model": "aperture-openai-compatible/anthropic/claude-sonnet-5.5"
+    },
+    "tracen-lounge": {
+      "model": "aperture-openai-compatible/anthropic/claude-sonnet-5.5"
+    },
+    "spe-chan": {
+      "model": "aperture-openai-compatible/mistral/mistral-large-4"
+    },
+    "super-creek": {
+      "model": "aperture-openai-compatible/google/gemini-3.8-flash"
+    },
+    "tachyon": {
+      "model": "aperture-openai-compatible/zai/glm-5.3"
+    },
+    "biwa": {
+      "model": "aperture-openai-compatible/anthropic/claude-haiku-5.5"
+    },
+    "golshi": {
+      "model": "aperture-openai-compatible/deepseek/deepseek-v4.1-flash"
+    }
+  }
+}

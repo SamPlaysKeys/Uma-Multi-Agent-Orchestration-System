@@ -4,12 +4,15 @@
 # This configuration decouples the Umamusume agent personas and prompts from
 # specific model endpoints. 
 #
-# Run the interactive configuration wizard at any time:
+# Presets are managed locally in ~/.config/opencode/opencode.jsonc under the
+# "agents" key, overriding the baseline models in agents/*.md.
+#
+# Run the interactive configuration wizard at any time to update your local config:
 #   ./install.sh --configure
 # Or directly:
 #   python3 scripts/configure.py
 #
-# To apply changes made directly to this file:
+# To apply the active preset directly to ~/.config/opencode/opencode.jsonc:
 #   python3 scripts/configure.py --apply
 # ==============================================================================
 

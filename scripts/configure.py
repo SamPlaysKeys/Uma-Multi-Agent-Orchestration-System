@@ -23,6 +23,8 @@ except ImportError:
 BASE_DIR = Path(__file__).resolve().parent.parent
 CONFIG_PATH = BASE_DIR / "uma-config.yaml"
 AGENTS_DIR = BASE_DIR / "agents"
+OPENCODE_CONFIG_PATH = Path.home() / ".config" / "opencode" / "opencode.jsonc"
+OPENCODE_CONFIG_PATH_FALLBACK = Path.home() / ".config" / "opencode" / "opencode.json"
 
 # Map of agent names to their markdown filenames
 AGENT_FILES = {
@@ -103,38 +105,64 @@ def resolve_agent_models(config: dict) -> dict:
     return resolved
 
 
-def update_agent_markdown(agent_id: str, model_id: str) -> bool:
-    """Safely updates the model: field in an agent's markdown frontmatter."""
-    file_name = AGENT_FILES.get(agent_id)
-    if not file_name:
-        return False
+def get_opencode_config_path() -> Path:
+    if OPENCODE_CONFIG_PATH.exists():
+        return OPENCODE_CONFIG_PATH
+    if OPENCODE_CONFIG_PATH_FALLBACK.exists():
+        return OPENCODE_CONFIG_PATH_FALLBACK
+    return OPENCODE_CONFIG_PATH
 
-    agent_path = AGENTS_DIR / file_name
-    if not agent_path.exists():
-        print(f"⚠️ Agent file not found: {agent_path}")
-        return False
 
-    content = agent_path.read_text(encoding="utf-8")
-
-    # Match frontmatter YAML block
-    pattern = r"^model:\s*.*$"
-    if re.search(pattern, content, flags=re.MULTILINE):
-        new_content = re.sub(pattern, f"model: {model_id}", content, count=1, flags=re.MULTILINE)
+def update_opencode_jsonc(resolved_models: dict) -> bool:
+    """Updates the 'agents' block in ~/.config/opencode/opencode.jsonc.
+    
+    Preserves all other config (schema, model, default_agent, providers, plugins, etc.).
+    Creates a timestamped backup before modifying an existing file.
+    """
+    target_path = get_opencode_config_path()
+    if not target_path.exists():
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        data = {
+            "$schema": "https://opencode.ai/config.json",
+            "agents": {}
+        }
     else:
-        # If model line missing, inject into frontmatter after opening ---
-        if content.startswith("---"):
-            new_content = content.replace("---", f"---\nmodel: {model_id}", 1)
-        else:
-            new_content = f"---\nmodel: {model_id}\n---\n\n" + content
+        text = target_path.read_text(encoding="utf-8")
+        # Strip comments for parsing if needed or parse standard JSON
+        clean_text = re.sub(r"^\s*//.*$", "", text, flags=re.MULTILINE)
+        clean_text = re.sub(r"/\*.*?\*/", "", clean_text, flags=re.DOTALL)
+        try:
+            data = json.loads(clean_text)
+        except Exception:
+            # Fallback to empty structure if invalid
+            data = {}
 
-    if new_content != content:
-        agent_path.write_text(new_content, encoding="utf-8")
-        return True
-    return False
+    if "agents" not in data or not isinstance(data["agents"], dict):
+        data["agents"] = {}
+
+    changed = False
+    for agent_id, model_id in resolved_models.items():
+        if agent_id not in data["agents"]:
+            data["agents"][agent_id] = {}
+        if data["agents"][agent_id].get("model") != model_id:
+            data["agents"][agent_id]["model"] = model_id
+            changed = True
+
+    if changed:
+        # Create a backup before writing changes
+        if target_path.exists():
+            import datetime
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            backup_path = target_path.parent / f"{target_path.name}.bak.{timestamp}"
+            shutil.copy2(target_path, backup_path)
+
+        target_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+
+    return changed
 
 
-def apply_configuration(config: dict, quiet: bool = False):
-    """Applies the resolved models from config into all agent markdown files."""
+def apply_configuration(config: dict, quiet: bool = False, update_markdown: bool = False):
+    """Applies the resolved models from config into opencode.jsonc and optionally markdown files."""
     resolved = resolve_agent_models(config)
     preset_name = config.get("active_preset", "custom")
 
@@ -142,20 +170,27 @@ def apply_configuration(config: dict, quiet: bool = False):
         print(f"\n🐎 [UMA OS] Applying Model Configuration (Preset: {preset_name})")
         print("=" * 65)
 
+    jsonc_updated = update_opencode_jsonc(resolved)
+    cfg_path = get_opencode_config_path()
+
     updated_count = 0
-    for agent_id, model_id in resolved.items():
-        display = AGENT_DISPLAY.get(agent_id, agent_id)
-        changed = update_agent_markdown(agent_id, model_id)
-        if changed:
-            updated_count += 1
-        if not quiet:
-            tier = config.get("agent_tiers", {}).get(agent_id, "default")
-            flag = "✨ [Updated]" if changed else "✓ [Current]"
-            print(f" {flag} {display:<22} ({tier:<12}) -> {model_id}")
+    if update_markdown:
+        for agent_id, model_id in resolved.items():
+            if update_agent_markdown(agent_id, model_id):
+                updated_count += 1
 
     if not quiet:
+        for agent_id, model_id in resolved.items():
+            display = AGENT_DISPLAY.get(agent_id, agent_id)
+            tier = config.get("agent_tiers", {}).get(agent_id, "default")
+            print(f" ✓ {display:<22} ({tier:<12}) -> {model_id}")
+
         print("=" * 65)
-        print(f"✅ Finished! {len(resolved)} agents synced ({updated_count} files modified).\n")
+        print(f"✅ Local OpenCode config synced: {cfg_path}")
+        if update_markdown:
+            print(f"📝 {updated_count} markdown frontmatter files updated in repo.")
+        else:
+            print(f"🛡️  Git repo markdown files untouched (local overrides in opencode.jsonc active).\n")
 
 
 def display_current_roster(config: dict):
@@ -216,11 +251,11 @@ def interactive_wizard():
     presets = list(config.get("presets", {}).keys())
 
     print("Choose an action:")
-    print("  [1] Select a Provider Preset (Anthropic, OpenAI, Vertex, Gemini, OpenRouter, Ollama, etc.)")
+    print("  [1] Select a Provider Preset (Aperture, Anthropic, OpenAI, Vertex, Gemini, OpenRouter, etc.)")
     print("  [2] Set ONE single model for the entire squad (e.g. anthropic/claude-3-7-sonnet)")
     print("  [3] Customize a specific Umamusume's model")
     print("  [4] Inspect detected OpenCode models")
-    print("  [5] Re-apply current uma-config.yaml to agents/*.md")
+    print("  [5] Sync active preset to local ~/.config/opencode/opencode.jsonc")
     print("  [0] Exit without changes")
 
     choice = input("\nSelect [0-5]: ").strip()
@@ -313,7 +348,8 @@ def interactive_wizard():
 
 def main():
     parser = argparse.ArgumentParser(description="UMA OS Model Configuration & Wizard")
-    parser.add_argument("--apply", action="store_true", help="Apply current uma-config.yaml to agents/*.md")
+    parser.add_argument("--apply", action="store_true", help="Apply current uma-config.yaml to ~/.config/opencode/opencode.jsonc")
+    parser.add_argument("--update-markdown", action="store_true", help="Also modify model: fields in agents/*.md in the Git repo")
     parser.add_argument("--preset", type=str, help="Switch active preset and apply")
     parser.add_argument("--single-model", type=str, help="Set all agents to a single model string")
     parser.add_argument("--show", action="store_true", help="Display current agent model mappings")
@@ -356,7 +392,7 @@ def main():
         config["active_preset"] = preset_name
         save_config(config)
         print(f"✓ Switched active preset to '{preset_name}'")
-        apply_configuration(config)
+        apply_configuration(config, update_markdown=args.update_markdown)
         return
 
     if args.single_model:
@@ -369,11 +405,11 @@ def main():
         config["custom_agent_models"] = {k: None for k in AGENT_FILES}
         save_config(config)
         print(f"✓ Set all agents to '{model_str}'")
-        apply_configuration(config)
+        apply_configuration(config, update_markdown=args.update_markdown)
         return
 
     if args.apply:
-        apply_configuration(config)
+        apply_configuration(config, update_markdown=args.update_markdown)
         return
 
 

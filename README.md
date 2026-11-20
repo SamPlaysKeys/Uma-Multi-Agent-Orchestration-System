@@ -192,9 +192,11 @@ python3 scripts/configure.py --single-model anthropic/claude-3-7-sonnet
 # Inspect current assignments
 python3 scripts/configure.py --show
 
-# Re-apply uma-config.yaml to agents/*.md
+# Sync active preset to local ~/.config/opencode/opencode.jsonc
 python3 scripts/configure.py --apply
 ```
+
+> **Note on Local Decoupling**: Configuration changes applied via `configure.py` are written directly to your local `~/.config/opencode/opencode.jsonc` under the `"agents"` key. OpenCode V2 uses these values to override the agent frontmatter, ensuring your Git repository working tree stays clean and untouched across `git pull` updates!
 
 ### 🔌 Future Roadmap: Native OpenCode Plugin
 As Trainer envisioned, this capability-tier architecture lays the groundwork for packaging UMA OS as an **official OpenCode plugin**. A plugin will enable:
