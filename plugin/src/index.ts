@@ -188,6 +188,7 @@ export function createContextHandler(options: ContextHookOptions = {}) {
   const aliasMap = nicknamesData?.alias_to_canonical || {};
 
   const lastCameoBySession = new Map<string, string>();
+  const ambientCameoByTurn = new Map<string, CameoCharacter | null>();
 
   const cameoByName = new Map<string, CameoCharacter>();
   for (const character of cameoCharacters) {
@@ -364,26 +365,31 @@ export function createContextHandler(options: ContextHookOptions = {}) {
 
     const sessionKey =
       typeof event.sessionID === "string" && event.sessionID.length > 0 ? event.sessionID : null;
+    const rawUserMsgId = latestUserMsg?.id;
+    const userMsgId =
+      typeof rawUserMsgId === "string" && rawUserMsgId.length > 0 ? rawUserMsgId : null;
+    const turnKey = sessionKey && userMsgId ? `${sessionKey}:${userMsgId}` : null;
     const isUserTurn = messages.at(-1)?.role === "user";
 
     // Tier 3: Ambient random drop-in (suppressed on soft-alias match/miss and guest-request)
-    if (
-      !dropInCharacter &&
-      !matchedAlias &&
-      !softAliasMatched &&
-      isUserTurn &&
-      baseChance > 0 &&
-      rng() < baseChance &&
-      eligibleCameoCharacters.length > 0
-    ) {
-      const lastCameoName = sessionKey ? lastCameoBySession.get(sessionKey) : undefined;
-      const candidates =
-        lastCameoName && eligibleCameoCharacters.length > 1
-          ? eligibleCameoCharacters.filter((c) => c.name !== lastCameoName)
-          : eligibleCameoCharacters;
-      const pool = candidates.length > 0 ? candidates : eligibleCameoCharacters;
+    if (!dropInCharacter && !matchedAlias && !softAliasMatched) {
+      if (isUserTurn) {
+        if (baseChance > 0 && rng() < baseChance && eligibleCameoCharacters.length > 0) {
+          const lastCameoName = sessionKey ? lastCameoBySession.get(sessionKey) : undefined;
+          const candidates =
+            lastCameoName && eligibleCameoCharacters.length > 1
+              ? eligibleCameoCharacters.filter((c) => c.name !== lastCameoName)
+              : eligibleCameoCharacters;
+          const pool = candidates.length > 0 ? candidates : eligibleCameoCharacters;
 
-      dropInCharacter = pickWeighted(pool, (c) => c.weight, rng);
+          dropInCharacter = pickWeighted(pool, (c) => c.weight, rng);
+        }
+        if (turnKey) {
+          setBounded(ambientCameoByTurn, turnKey, dropInCharacter);
+        }
+      } else if (turnKey && ambientCameoByTurn.has(turnKey)) {
+        dropInCharacter = ambientCameoByTurn.get(turnKey) ?? null;
+      }
     }
 
     if (dropInCharacter && sessionKey) {
